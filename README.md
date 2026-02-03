@@ -27,6 +27,21 @@
 
 ## Timeline
 
+Report 1, Sprint 1 | Dates 01.18.26 - 01.31.26
+    Objective: Complete basic design, IDE setup, basic documentation, start development
+Report 2, Sprint 2 | Dates 02.01.26 - 02.14.26
+    Objective: Build basic layouts, paging
+Report 3, Sprint 3 | Dates 02.15.26 - 02.28.26
+    Objective: Implement buddies, and dependencies on tasks
+Report 4, Sprint 4 | Dates 03.01.26 - 03.14.26
+    Objective: Complete design, implement error handling, create unified design
+Technical Report | Dates 04.05.26 - 04.11.26
+    Objective: As a group create a 15 page technical report on the documentation for the development of your project in the IEEE Standard.
+Presentation | Dates 04.12.26 - 04.18.26
+    Objective: Present your project at the school wide, CETA showcase
+Final Technical Report | 04.25.26
+    Objective: As a group, finalize your 15 page technical report on the documentation for the development of your project in the IEEE Standard.
+
 ## Group Contributions
     Report 1:
 
