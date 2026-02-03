@@ -31,15 +31,15 @@
     Report 1:
 
 ## Individual Contributions
-### Penny
+### Penny - Developer
     Report 1:
         - Theorized "psudeocode gold" as in game currency
 
-### Lucius
+### Lucius - Developer
     Report 1:
         - Created Github, invited all to collaborate.
 
-### Gary
+### Gary - Developer
     Report 1:
         - Created outline of application
         - Drafted health logi (i.e. task completion being tied to buddy's health)
@@ -48,7 +48,7 @@
             - Create Task
 
 
-### Emma
+### Emma - Developer, Documentation Lead
     Report 1:
         - Explored Godot with Gary
         - Set up basic project in Android Studio
