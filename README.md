@@ -75,3 +75,4 @@ Final Technical Report | 04.25.26 | Objective: As a group, finalize your 15 page
             - Scope
             - Timeline
             - Roles
+        - Developed extensive README
