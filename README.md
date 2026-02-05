@@ -66,6 +66,12 @@ Final Technical Report | 04.25.26 | Objective: As a group, finalize your 15 page
         - Came up with starting layouts for:
             - Views (List, Task)
             - Create Task
+        - Imported Godot APK into application by:
+            - Installing Android Studio & Java JDK 25.0.2
+            - Created keystore in Program Files
+            - In Godot 4.6 set the debug keystore to the one generated in previous step
+            - Set the Java SDK path to the JDK path
+            - Then Export the APK to the Android Studio Project
 
 ### Emma - Developer, Documentation Lead
     Report 1:
