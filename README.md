@@ -15,18 +15,18 @@
             - Customizable friend
             - Health
 
-## Installation
-
 ## Setup & Technology
     IDE: ANDROID STUDIO, VSCODE 
     VERSION CONTROL: GITHUB
     
-## Process
-
-## Scope
-
+### Goals
+    As a user I want my list to adapt to my needs so I can use it in all scenerios.
+    As a user I want to create tasks easily so I save time.
+    As a user I want to easily manage my day so I don't have to refactor my entire list.
+    As a user I want to categorize my tasks so I can easily decide what I need to do.
+    
 ## Timeline
-
+    
 Report 1, Sprint 1 | Dates 01.18.26 - 01.31.26
     Objective: Complete basic design, IDE setup, basic documentation, start development
 Report 2, Sprint 2 | Dates 02.01.26 - 02.14.26
@@ -44,6 +44,10 @@ Final Technical Report | 04.25.26
 
 ## Group Contributions
     Report 1:
+        Finalize basic app concepts.
+        Start up development environment.
+        Configure godot
+        Create test page        
 
 ## Individual Contributions
 ### Penny - Developer
@@ -53,6 +57,8 @@ Final Technical Report | 04.25.26
 ### Lucius - Developer
     Report 1:
         - Created Github, invited all to collaborate.
+        - Exported godot APK to android studio project
+        - Created a test page
 
 ### Gary - Developer
     Report 1:
@@ -61,7 +67,6 @@ Final Technical Report | 04.25.26
         - Came up with starting layouts for:
             - Views (List, Task)
             - Create Task
-
 
 ### Emma - Developer, Documentation Lead
     Report 1:
