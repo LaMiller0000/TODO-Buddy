@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://bbxsh4sa50lr4"]
 
+[ext_resource type="Script" uid="uid://cthn6lre3l370" path="res://ButtonTest.cs" id="1_3mqji"]
+
 [sub_resource type="Theme" id="Theme_3mqji"]
 default_font_size = 105
 
@@ -32,3 +34,6 @@ offset_bottom = 744.0633
 theme = SubResource("Theme_1305s")
 text = "wowowowowowowow
 "
+script = ExtResource("1_3mqji")
+
+[connection signal="pressed" from="Button" to="Button" method="OnButtonPressed"]
