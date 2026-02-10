@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bbxsh4sa50lr4"]
+
+[sub_resource type="Theme" id="Theme_3mqji"]
+default_font_size = 105
+
+[sub_resource type="Theme" id="Theme_1305s"]
+default_font_size = 50
+
+[node name="Node2D" type="Node2D" unique_id=857280613]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=823544076]
+offset_left = 58.0
+offset_top = 54.0
+offset_right = 1023.0
+offset_bottom = 1862.0
+color = Color(0.09459738, 0, 0.5945076, 1)
+
+[node name="Label" type="Label" parent="." unique_id=567787698]
+offset_left = 165.0
+offset_top = 275.0
+offset_right = 386.0
+offset_bottom = 431.0
+size_flags_vertical = 1
+theme = SubResource("Theme_3mqji")
+text = "test"
+
+[node name="Button" type="Button" parent="." unique_id=1349217021]
+offset_left = 410.0
+offset_top = 557.0
+offset_right = 958.0
+offset_bottom = 744.0633
+theme = SubResource("Theme_1305s")
+text = "wowowowowowowow
+"
