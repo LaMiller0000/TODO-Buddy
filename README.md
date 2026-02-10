@@ -52,6 +52,9 @@ Final Technical Report | 04.25.26 | Objective: As a group, finalize your 15 page
 ### Penny - Developer
     Report 1:
         - Theorized "psudeocode gold" as in game currency
+        - Pulled project and got it working locally
+    Report 2:
+        - Indivual learning on basics of Godot
 
 ### Lucius - Developer
     Report 1:
