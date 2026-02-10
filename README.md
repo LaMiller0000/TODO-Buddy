@@ -59,8 +59,6 @@ Final Technical Report | 04.25.26 | Objective: As a group, finalize your 15 page
 ### Lucius - Developer
     Report 1:
         - Created Github, invited all to collaborate.
-        - Exported godot APK to android studio project
-        - Created a test page
 
 ### Gary - Developer
     Report 1:
@@ -75,6 +73,8 @@ Final Technical Report | 04.25.26 | Objective: As a group, finalize your 15 page
             - In Godot 4.6 set the debug keystore to the one generated in previous step
             - Set the Java SDK path to the JDK path
             - Then Export the APK to the Android Studio Project
+        - Exported godot APK to android studio project
+        - Created a test page
 
 ### Emma - Developer, Documentation Lead
     Report 1:
