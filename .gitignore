@@ -55,3 +55,8 @@ ipch/
 android/
 *.apk
 *.aab
+
+
+
+# JetBrains IDEs
+.idea/
