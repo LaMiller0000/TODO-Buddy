@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TODOBuddy;
 public class Task
 {
     /// <summary>Holds the name of the task.</summary>
