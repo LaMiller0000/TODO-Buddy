@@ -2,10 +2,19 @@ namespace TODOBuddy;
 
 public class BuddyClass
 {
+    public enum Behaviours
+    {
+        IDLE,
+        ASLEEP,
+        PLAY,
+        DEAD,
+    }
+    
     private int id;
     private string name;
     private string description;
     private int health;
+    private Behaviours behaviour;
     
     public BuddyClass(int id) =>
     (this.id, name, description, health) = (id, "John", "A TODO Buddy", 10);
@@ -43,10 +52,5 @@ public class BuddyClass
         
     }
     
-    public enum Behaviours
-    {
-        IDLE,
-        ASLEEP,
-        
-    }
+    public void setBehaviour(Behaviours behaviour) => this.behaviour = behaviour;
 }
