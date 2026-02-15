@@ -42,4 +42,11 @@ public class BuddyClass
     {
         
     }
+    
+    public enum Behaviours
+    {
+        IDLE,
+        ASLEEP,
+        
+    }
 }
