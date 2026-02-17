@@ -1,3 +1,4 @@
+using Godot;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -6,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
+[Tool]
 internal class TaskHelper
 {
     #region Debug Tasks
@@ -19,6 +21,12 @@ internal class TaskHelper
         DebugTask_5,
         DebugTask_6,
         DebugTask_7
+    };
+
+    public static Task NullTask = new Task
+    {
+        Name = "Null Task",
+        Description = "If you see this there has been an error."
     };
 
     //These are some filler tasks, mostly just used to fill in data while editing
@@ -95,12 +103,23 @@ internal class TaskHelper
     {
         return $"{MonthNumToMonthNameSmall(date)} {date.Day}";
     }
+    public static string GetDateOrNoneSmall(DateTime? dateTime) => GetDateOrNoneSmall(dateTime.HasValue ? DateOnly.FromDateTime(dateTime.Value) : null);
+    public static string GetDateOrNoneSmall(DateOnly? date)
+    {
+        return date.HasValue ? GetDateSmall(date.Value) : "No Due Date";
+    }
 
     public static string GetDateLarge(DateTime dateTime) => GetDateLarge(DateOnly.FromDateTime(dateTime));
     public static string GetDateLarge(DateOnly date)
     {
         return $"{MonthNumToMonthNameLarge(date)} {date.Day}, {date.Year}";
     }
+    public static string GetDateOrNoneLarge(DateTime? dateTime) => GetDateOrNoneLarge(dateTime.HasValue ? DateOnly.FromDateTime(dateTime.Value) : null);
+    public static string GetDateOrNoneLarge(DateOnly? date)
+    {
+        return date.HasValue ? GetDateLarge(date.Value) : "No Due Date";
+    }
+
     public static string MonthNumToMonthNameSmall(DateTime dateTime) => MonthNumToMonthNameSmall(DateOnly.FromDateTime(dateTime));
     public static string MonthNumToMonthNameSmall(DateOnly date)
     {

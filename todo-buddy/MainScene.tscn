@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bbxsh4sa50lr4"]
 
 [ext_resource type="Script" uid="uid://cthn6lre3l370" path="res://ButtonTest.cs" id="1_3mqji"]
-[ext_resource type="PackedScene" uid="uid://dxbcimw83bexc" path="res://TaskDisplayList.tscn" id="2_x4av3"]
+[ext_resource type="PackedScene" uid="uid://ttqgcf2eq6f1" path="res://TaskDisplayList.tscn" id="2_x4av3"]
 
 [sub_resource type="Theme" id="Theme_1305s"]
 default_font_size = 50
@@ -48,11 +48,16 @@ text = "wowowowowowowow
 script = ExtResource("1_3mqji")
 
 [node name="TabContainer" type="TabContainer" parent="." unique_id=872617047]
-layout_mode = 0
-offset_left = 17.0
-offset_top = 204.0
-offset_right = 1043.0
-offset_bottom = 1133.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.016
+anchor_top = 0.106000006
+anchor_right = 0.97700006
+anchor_bottom = 0.98800004
+offset_left = -0.2800007
+offset_top = 0.47998047
+offset_right = -0.16003418
+offset_bottom = 0.039916992
 current_tab = 0
 
 [node name="ScrollContainer" parent="TabContainer" unique_id=1599380571 instance=ExtResource("2_x4av3")]

@@ -2,10 +2,10 @@
 
 [ext_resource type="StyleBox" uid="uid://di4vyvqiitj0t" path="res://style_box_rounded_corners_1.tres" id="1_20p34"]
 [ext_resource type="Script" uid="uid://gpr2wt84nsib" path="res://TaskListElement.cs" id="1_mjnrt"]
-[ext_resource type="Script" uid="uid://c2ktfqp2i3fev" path="res://ListElementOrganizer.cs" id="3_20p34"]
+[ext_resource type="PackedScene" uid="uid://bj4abbe1s2kwr" path="res://Tasks/TaskStatusElement.tscn" id="4_0ncud"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0ncud"]
-font_size = 55
+font_size = 75
 shadow_size = 2
 shadow_color = Color(0, 0, 0, 0.32156864)
 
@@ -17,35 +17,24 @@ shadow_color = Color(0, 0, 0, 0.42352942)
 [sub_resource type="LabelSettings" id="LabelSettings_20p34"]
 font_size = 24
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ncud"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.14901961, 0.36078432, 0.14901961, 0)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.042000007, 0.84, 0.13510011, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
-corner_detail = 6
-
-[node name="TaskListElement" type="Panel" unique_id=2079794764]
+[node name="TaskListElement" type="Panel" unique_id=2079794764 node_paths=PackedStringArray("TaskName_Label", "Description_Label", "DueDate_Label", "Expand_Button", "VBox_DateStatus", "Status_Element")]
 clip_children = 2
 clip_contents = true
 custom_minimum_size = Vector2(450, 130)
 offset_left = 2.0
 offset_top = 1.0
-offset_right = 901.0
-offset_bottom = 204.0
+offset_right = 984.0
+offset_bottom = 395.0
 size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_styles/panel = ExtResource("1_20p34")
 script = ExtResource("1_mjnrt")
+TaskName_Label = NodePath("MarginContainer/HBoxContainer/VBox_TitleAndDescription/TaskName_Label")
+Description_Label = NodePath("MarginContainer/HBoxContainer/VBox_TitleAndDescription/Description_MarginContainer/Description_Label")
+DueDate_Label = NodePath("MarginContainer/HBoxContainer/Control/VBox_DateStatus/DueDate_Label")
+Expand_Button = NodePath("Expand_Button")
+VBox_DateStatus = NodePath("MarginContainer/HBoxContainer/Control/VBox_DateStatus")
+Status_Element = NodePath("MarginContainer/HBoxContainer/Control/VBox_DateStatus/StatusElement")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=464139663]
 layout_mode = 1
@@ -58,7 +47,6 @@ theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 10
-script = ExtResource("3_20p34")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=836408406]
 layout_mode = 2
@@ -68,12 +56,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.75
 
-[node name="Title_Label" type="Label" parent="MarginContainer/HBoxContainer/VBox_TitleAndDescription" unique_id=252832843]
+[node name="TaskName_Label" type="Label" parent="MarginContainer/HBoxContainer/VBox_TitleAndDescription" unique_id=252832843]
 layout_mode = 2
 size_flags_vertical = 1
 size_flags_stretch_ratio = 3.0
 theme_override_font_sizes/font_size = 75
-text = "Task Title"
+text = "Task 1"
 label_settings = SubResource("LabelSettings_0ncud")
 clip_text = true
 text_overrun_behavior = 3
@@ -87,15 +75,7 @@ theme_override_constants/margin_top = -5
 [node name="Description_Label" type="Label" parent="MarginContainer/HBoxContainer/VBox_TitleAndDescription/Description_MarginContainer" unique_id=880452728]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Description / notes    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna mauris, condimentum sit amet sem quis, scelerisque ornare sapien. Integer maximus congue nisl, sed egestas lorem hendrerit at. Donec vehicula ut orci id varius. Sed molestie ut nisi sit amet dictum. Quisque commodo maximus hendrerit. Praesent aliquet tortor molestie, suscipit mi sit amet, sollicitudin eros. Proin a imperdiet neque. In id neque id justo tristique pellentesque sit amet vitae ante. Phasellus in mattis ante. Ut pellentesque elit sit amet mauris interdum, ac aliquam ex dictum. Vivamus id massa sed dolor mattis vestibulum at rutrum turpis.
-
-Curabitur vitae posuere nulla, ac iaculis ex. Aliquam tempor neque vel erat pretium convallis. Donec non turpis non velit venenatis ultricies. Nunc pharetra tempor condimentum. Donec leo justo, varius id pellentesque ac, laoreet a felis. Ut vulputate, elit a ornare gravida, ligula ante tempor massa, ac luctus orci justo nec elit. Nunc non lacinia ante, ut molestie ex. Vivamus sodales vulputate pellentesque. Pellentesque vitae lacinia mi, at tincidunt velit. Integer mattis nunc in nisi lacinia, eu pulvinar nunc tincidunt. Fusce laoreet purus et velit tincidunt volutpat. Proin et erat dolor. Morbi iaculis ut ipsum a hendrerit. Morbi et suscipit risus, sit amet vehicula ex. In nec augue eu ipsum rutrum tempus id sed turpis. Mauris vestibulum molestie erat vel dapibus.
-
-Pellentesque molestie vitae neque vitae molestie. Nunc pretium enim non dui sodales viverra. Curabitur elit dui, rhoncus at hendrerit nec, molestie non ex. Donec nibh diam, ultricies semper sagittis non, rhoncus a velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque mauris massa, bibendum id accumsan quis, ornare et lorem. In ac volutpat justo. Aliquam condimentum arcu vitae ipsum iaculis, nec feugiat lorem accumsan. Vivamus dapibus lacus sed orci rutrum rutrum. Quisque commodo non tellus sit amet faucibus. Quisque eros enim, auctor ac malesuada in, vestibulum sed ligula.
-
-Integer tortor arcu, viverra non ipsum in, sodales blandit odio. Ut elementum ac diam ut fermentum. Vestibulum vitae orci nec risus sollicitudin commodo ut sit amet enim. Donec maximus placerat magna sed euismod. Nam erat sem, volutpat vitae urna id, blandit pharetra arcu. Donec scelerisque dapibus ligula ac dictum. Suspendisse malesuada pharetra pellentesque. Donec hendrerit nec nibh at hendrerit. Phasellus ac hendrerit sem. Vestibulum maximus ligula odio. Etiam vel congue mauris.
-
-Sed vel placerat odio, nec convallis ex. Vestibulum venenatis erat vel tellus accumsan, eget ultricies lorem malesuada. Sed sollicitudin massa vitae euismod cursus. Etiam accumsan, nisl nec fringilla tincidunt, ante lectus ornare lectus, eget luctus quam nisi maximus felis. Nulla sollicitudin sapien a ornare tincidunt. Ut hendrerit sed mi eget sollicitudin. Sed eget ante id lacus tristique porttitor. Proin sed eleifend sapien. Proin fringilla ultrices risus sit amet porta."
+text = "Description / notes 1    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna mauris, condimentum sit amet sem quis, scelerisque ornare sapien. Integer maximus congue nisl, sed egestas lorem hendrerit at. Donec vehicula ut orci id varius. Sed molestie ut nisi sit amet dictum. Quisque commodo maximus hendrerit."
 label_settings = SubResource("LabelSettings_hpwdb")
 autowrap_mode = 3
 clip_text = true
@@ -128,29 +108,9 @@ vertical_alignment = 2
 clip_text = true
 text_overrun_behavior = 3
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/HBoxContainer/Control/VBox_DateStatus" unique_id=1383754054]
-layout_mode = 2
-size_flags_vertical = 3
-ratio = 4.0
-
-[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/Control/VBox_DateStatus/AspectRatioContainer" unique_id=707214447]
+[node name="StatusElement" parent="MarginContainer/HBoxContainer/Control/VBox_DateStatus" unique_id=910742512 instance=ExtResource("4_0ncud")]
 clip_children = 2
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_0ncud")
-
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Control/VBox_DateStatus/AspectRatioContainer/Panel" unique_id=414179473]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 24
-text = "In Progress"
-horizontal_alignment = 1
-vertical_alignment = 1
-text_overrun_behavior = 1
 
 [node name="Expand_Button" type="Button" parent="." unique_id=774974538]
 layout_mode = 1
@@ -162,5 +122,5 @@ grow_vertical = 2
 mouse_filter = 1
 flat = true
 
-[connection signal="resized" from="." to="MarginContainer" method="OnResize"]
+[connection signal="resized" from="." to="." method="OnResize"]
 [connection signal="pressed" from="Expand_Button" to="." method="OnExpandButtonPressed"]
