@@ -14,7 +14,7 @@ public partial class TaskListElement : Panel
 
     // flag to hold if the element is expanded or not
     private bool _expanded = false;
-
+    
     public override void _Ready()
     {
         Task = TaskHelper.DebugTask_1;

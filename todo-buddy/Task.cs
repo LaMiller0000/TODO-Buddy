@@ -106,5 +106,6 @@ public enum TaskProgress
     Todo = 0,
     InProgress = 1,
     Done = 2,
+    Completed = Done,
 }
 
