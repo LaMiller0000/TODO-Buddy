@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bj4abbe1s2kwr" path="res://Tasks/TaskStatusElement.tscn" id="4_0ncud"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0ncud"]
-font_size = 75
+font_size = 55
 shadow_size = 2
 shadow_color = Color(0, 0, 0, 0.32156864)
 

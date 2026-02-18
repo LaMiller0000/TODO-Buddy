@@ -9,42 +9,24 @@ public partial class TaskDisplayList : ScrollContainer
     [ExportToolButton("Refresh List")] public Callable RefreshButton => new Callable(this, nameof(Refresh));
     [ExportToolButton("Clear List")] public Callable ClearButton => new Callable(this, nameof(ClearList));
 
-    //public List<Task> Tasks = TaskHelper.DebugTasks;
-
-    private PackedScene _TaskDisplay;
-
+    [Export]
+    public PackedScene _TaskDisplay;
 
 
     public override void _Ready()
     {
-        //foreach ( var child in TaskListContainer.GetChildren())
-        //{
-        //    TaskListContainer.RemoveChild(child);
-        //}
-
-        //_TaskDisplay = ResourceLoader.Load<PackedScene>("res://task_list_element.tscn");
-
-        //foreach (var task in TaskHelper.DebugTasks)
-        //{
-        //    GD.Print($"Adding task: ");
-
-        //    TaskListElement taskListElement = _TaskDisplay.Instantiate<TaskListElement>();
-        //    taskListElement.Task = task;
-        //    TaskListContainer.AddChild(taskListElement);
-        //}
+        ClearList();
+        Refresh();
     }
     public void Refresh()
     {
-        //foreach ( var child in TaskListContainer.GetChildren())
-        //{
-        //    TaskListContainer.RemoveChild(child);
-        //}
-
-        foreach (var task in TaskHelper.DebugTasks)
+        GD.Print($"Task Length: {TaskHelper.DebugTasks.Count}");
+        foreach (Task task in TaskHelper.DebugTasks)
         {
-            GD.Print($"Adding task: ");
+            GD.Print($"Adding task: {task.Name}");
             TaskListElement taskListElement = _TaskDisplay.Instantiate<TaskListElement>();
             taskListElement.Task = task;
+            taskListElement.Refresh();
             TaskListContainer.AddChild(taskListElement);
         }
     }

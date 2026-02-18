@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cthn6lre3l370" path="res://ButtonTest.cs" id="1_3mqji"]
 [ext_resource type="PackedScene" uid="uid://ttqgcf2eq6f1" path="res://TaskDisplayList.tscn" id="2_x4av3"]
+[ext_resource type="PackedScene" uid="uid://b4bb5s1plvbx7" path="res://task_list_element.tscn" id="3_rpqi1"]
 
 [sub_resource type="Theme" id="Theme_1305s"]
 default_font_size = 50
@@ -62,5 +63,6 @@ current_tab = 0
 
 [node name="ScrollContainer" parent="TabContainer" unique_id=1599380571 instance=ExtResource("2_x4av3")]
 layout_mode = 2
+_TaskDisplay = ExtResource("3_rpqi1")
 
 [connection signal="pressed" from="Button" to="Button" method="OnButtonPressed"]
