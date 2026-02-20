@@ -1,14 +1,9 @@
+using System;
+
 namespace TODOBuddy;
 
 public class BuddyClass
 {
-    public enum Behaviours
-    {
-        IDLE,
-        ASLEEP,
-        PLAY,
-        DEAD,
-    }
     
     private int id;
     private string name;
@@ -30,6 +25,28 @@ public class BuddyClass
     public void setName(string name) => this.name = name;
     public void setDescription(string description) => this.description = description;
     public void setHealth(int health) => this.health = health;
+
+    public void chechHealth(Behaviours behaviour)
+    {
+        switch (health)
+        {
+            case >= 10:
+                setBehaviour(Behaviours.HAPPY);
+                break;
+            case >= 5 when health < 10:
+                setBehaviour(Behaviours.IDLE);
+                break;
+            case >= 1 when health < 5:
+                setBehaviour(Behaviours.HURT_IDLE);
+                break;
+            case 0:
+                setBehaviour(Behaviours.DEAD);
+                break;
+            default:
+                Console.WriteLine("No valid health!");
+                break;
+        }
+    }
 
     public void getHurt(int damage = 0)
     {
