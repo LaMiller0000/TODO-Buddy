@@ -1,34 +1,89 @@
 [gd_scene format=3 uid="uid://bbxsh4sa50lr4"]
 
-[sub_resource type="Theme" id="Theme_3mqji"]
-default_font_size = 105
+[ext_resource type="Script" uid="uid://cthn6lre3l370" path="res://ButtonTest.cs" id="1_3mqji"]
+[ext_resource type="PackedScene" uid="uid://b4bb5s1plvbx7" path="res://task_list_element.tscn" id="2_x4av3"]
 
 [sub_resource type="Theme" id="Theme_1305s"]
 default_font_size = 50
 
-[node name="Node2D" type="Node2D" unique_id=857280613]
+[node name="Node2D" type="Control" unique_id=1479291969]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=823544076]
-offset_left = 58.0
-offset_top = 54.0
-offset_right = 1023.0
-offset_bottom = 1862.0
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=671349599]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer" unique_id=823544076]
+layout_mode = 2
 color = Color(0.09459738, 0, 0.5945076, 1)
 
-[node name="Label" type="Label" parent="." unique_id=567787698]
-offset_left = 165.0
-offset_top = 275.0
-offset_right = 386.0
-offset_bottom = 431.0
-size_flags_vertical = 1
-theme = SubResource("Theme_3mqji")
-text = "test"
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=2103469370]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.11800001
+anchor_right = 1.0
+anchor_bottom = 0.47200003
+offset_top = -0.5600128
+offset_bottom = 0.75994873
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1042965789]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TaskListElement" parent="ScrollContainer/VBoxContainer" unique_id=1360618322 instance=ExtResource("2_x4av3")]
+layout_mode = 2
+
+[node name="TaskListElement2" parent="ScrollContainer/VBoxContainer" unique_id=2079794764 instance=ExtResource("2_x4av3")]
+layout_mode = 2
+
+[node name="TaskListElement3" parent="ScrollContainer/VBoxContainer" unique_id=124981344 instance=ExtResource("2_x4av3")]
+layout_mode = 2
+
+[node name="TaskListElement4" parent="ScrollContainer/VBoxContainer" unique_id=1099377023 instance=ExtResource("2_x4av3")]
+layout_mode = 2
+
+[node name="TaskListElement5" parent="ScrollContainer/VBoxContainer" unique_id=1037096600 instance=ExtResource("2_x4av3")]
+layout_mode = 2
+
+[node name="TaskListElement6" parent="ScrollContainer/VBoxContainer" unique_id=78694174 instance=ExtResource("2_x4av3")]
+layout_mode = 2
+
+[node name="TaskListElement7" parent="ScrollContainer/VBoxContainer" unique_id=1463744864 instance=ExtResource("2_x4av3")]
+layout_mode = 2
+
+[node name="TaskListElement8" parent="ScrollContainer/VBoxContainer" unique_id=1260495282 instance=ExtResource("2_x4av3")]
+layout_mode = 2
 
 [node name="Button" type="Button" parent="." unique_id=1349217021]
-offset_left = 410.0
-offset_top = 557.0
-offset_right = 958.0
-offset_bottom = 744.0633
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.019000001
+anchor_top = 0.010000001
+anchor_right = 0.97400004
+anchor_bottom = 0.108
+offset_left = 0.47999954
+offset_top = 0.79999924
+offset_right = 0.079956055
+offset_bottom = -0.29670715
+grow_horizontal = 2
 theme = SubResource("Theme_1305s")
 text = "wowowowowowowow
 "
+script = ExtResource("1_3mqji")
+
+[connection signal="pressed" from="Button" to="Button" method="OnButtonPressed"]

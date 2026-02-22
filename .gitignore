@@ -15,5 +15,48 @@ export_credentials.cfg
 data_*/
 mono_crash.*.json
 
+
+####################################
+# .NET / C#
+####################################
+
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.userprefs
+*.suo
+*.rsuser
+
+# Rider / VS Code / VS cache
+.vs/
+.vscode/
+
+
+####################################
+# Visual Studio
+####################################
+
+# Visual Studio cache
+*.VC.db
+*.VC.opendb
+
+# VS temp
+ipch/
+
+
+####################################
+# Mobile builds / exports
+####################################
+
+# Android
+android/
+*.apk
+*.aab
+
+
+
 # JetBrains IDEs
 .idea/
