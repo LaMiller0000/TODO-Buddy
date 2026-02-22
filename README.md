@@ -16,8 +16,11 @@
             - Health
 
 ## Setup & Technology
-    IDE: ANDROID STUDIO, VSCODE 
+    IDE: ANDROID STUDIO, VSCODE, GODOT, JETBRAINS RYDER
     VERSION CONTROL: GITHUB
+    COMMUNICATION: DISCORD
+    PLANNING: DRAW.IO
+    LANGUAGES: Java, GDScript
     
 ### Goals
     As a user I want my list to adapt to my needs so I can use it in all scenerios.
@@ -46,7 +49,14 @@ Final Technical Report | 04.25.26 | Objective: As a group, finalize your 15 page
         Finalize basic app concepts.
         Start up development environment.
         Configure godot
-        Create test page        
+        Create test page       
+    Report 2:
+        Task component for the UI was programmatically added
+        Buddy class was created:
+            - Attributes: ID, NAME
+            - Behaviors: SLEEP, HURT, PLAY, DEAD, IDLE, HAPPY
+            - Dialog
+        Research sprint on Godot
 
 ## Individual Contributions
 ### Penny - Developer
@@ -54,11 +64,18 @@ Final Technical Report | 04.25.26 | Objective: As a group, finalize your 15 page
         - Theorized "psudeocode gold" as in game currency
         - Pulled project and got it working locally
     Report 2:
-        - Indivual learning on basics of Godot
+        - Individual learning on basics of Godot
 
 ### Lucius - Developer
     Report 1:
         - Created Github, invited all to collaborate.
+    Report 2:
+        - Created Buddy Class
+        - Created Attributes for buddy class
+            - Id, Name
+        - Created Enum for buddy class behaviors
+            - Sleep, Dead, Idle, Play, Hurt, Happy
+        - Added Dialog Script
 
 ### Gary - Developer
     Report 1:
@@ -75,6 +92,13 @@ Final Technical Report | 04.25.26 | Objective: As a group, finalize your 15 page
             - Then Export the APK to the Android Studio Project
         - Exported godot APK to android studio project
         - Created a test page
+    Report 2:
+        - Created draw.io diagram for:
+            - task class
+            - modeled entire application
+        - Created list element
+        - Created task display list
+        - Modification to the buddy system for task system interaction.
 
 ### Emma - Developer, Documentation Lead
     Report 1:
@@ -85,3 +109,7 @@ Final Technical Report | 04.25.26 | Objective: As a group, finalize your 15 page
             - Timeline
             - Roles
         - Developed extensive README
+    Report 2:
+        - Continued to develop README documentation on github
+        - Research spike on Godot Engine:
+            - Learned about IDE structure and OOP structure with GDScript
