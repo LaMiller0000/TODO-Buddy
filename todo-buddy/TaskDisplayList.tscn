@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://ttqgcf2eq6f1"]
+
+[ext_resource type="Script" uid="uid://beed75tdshxg2" path="res://TaskDisplayList.cs" id="1_5vd4u"]
+[ext_resource type="PackedScene" uid="uid://b4bb5s1plvbx7" path="res://task_list_element.tscn" id="1_883rr"]
+
+[node name="ScrollContainer" type="ScrollContainer" unique_id=1599380571 node_paths=PackedStringArray("TaskListContainer")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5vd4u")
+TaskListContainer = NodePath("VBoxContainer")
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1904537867]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TaskListElement" parent="VBoxContainer" unique_id=2079794764 instance=ExtResource("1_883rr")]
+layout_mode = 2
+
+[node name="TaskListElement2" parent="VBoxContainer" unique_id=280733122 instance=ExtResource("1_883rr")]
+custom_minimum_size = Vector2(450, 400)
+layout_mode = 2
+
+[node name="TaskListElement3" parent="VBoxContainer" unique_id=983259943 instance=ExtResource("1_883rr")]
+layout_mode = 2
+
+[node name="TaskListElement4" parent="VBoxContainer" unique_id=2079015376 instance=ExtResource("1_883rr")]
+layout_mode = 2

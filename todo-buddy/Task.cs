@@ -1,3 +1,4 @@
+using Godot;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
@@ -5,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+[Tool]
 public class Task
 {
     /// <summary>Holds the name of the task.</summary>
@@ -106,5 +108,6 @@ public enum TaskProgress
     Todo = 0,
     InProgress = 1,
     Done = 2,
+    Completed = Done,
 }
 
