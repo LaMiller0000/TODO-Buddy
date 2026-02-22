@@ -12,7 +12,6 @@ internal class TaskHelper
 {
     #region Debug Tasks
 
-
     public static Task NullTask = new Task
     {
         Name = "Null Task",
