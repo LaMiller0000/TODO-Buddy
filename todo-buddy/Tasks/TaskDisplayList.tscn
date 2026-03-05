@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://beed75tdshxg2" path="res://Tasks/TaskDisplayList.cs" id="1_5vd4u"]
 
-[node name="ScrollContainer" type="ScrollContainer" unique_id=1599380571 node_paths=PackedStringArray("TaskListContainer")]
+[node name="TaskDisplayList" type="ScrollContainer" unique_id=1599380571 node_paths=PackedStringArray("TaskListContainer")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://rqpcgsefl7yu"]
+
+[ext_resource type="PackedScene" uid="uid://ttqgcf2eq6f1" path="res://Tasks/TaskDisplayList.tscn" id="1_8jh38"]
+[ext_resource type="Script" uid="uid://w0eilusxkxm4" path="res://Tasks/TaskListTab.cs" id="1_tuqwp"]
+[ext_resource type="PackedScene" uid="uid://b4bb5s1plvbx7" path="res://task_list_element.tscn" id="2_tuqwp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8jh38"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+corner_radius_top_left = 300
+corner_radius_top_right = 300
+corner_radius_bottom_right = 300
+corner_radius_bottom_left = 300
+corner_detail = 10
+
+[node name="TaskList_Tab" type="Control" unique_id=279327588]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tuqwp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=296271663]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button2" type="OptionButton" parent="VBoxContainer" unique_id=373049851]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+flat = true
+alignment = 2
+selected = 0
+item_count = 4
+popup/item_0/text = "Due Date"
+popup/item_0/id = 0
+popup/item_1/text = "Priority"
+popup/item_1/id = 1
+popup/item_2/text = "Creation Date"
+popup/item_2/id = 2
+popup/item_3/text = "Alphabetiacally"
+popup/item_3/id = 3
+
+[node name="TaskDisplayList" parent="VBoxContainer" unique_id=1599380571 instance=ExtResource("1_8jh38")]
+layout_mode = 2
+size_flags_vertical = 3
+_TaskDisplay = ExtResource("2_tuqwp")
+
+[node name="CreateNewTask_Button" type="Button" parent="." unique_id=70666788]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -218.55219
+offset_top = -207.0
+offset_right = -40.0
+offset_bottom = -38.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_8jh38")
+text = "+"
+
+[connection signal="item_selected" from="VBoxContainer/Button2" to="." method="OnFilterChanged"]
+[connection signal="pressed" from="CreateNewTask_Button" to="." method="OnCreateButtonPressed"]
