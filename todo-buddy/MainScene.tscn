@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://bbxsh4sa50lr4"]
 
 [ext_resource type="Script" uid="uid://cthn6lre3l370" path="res://ButtonTest.cs" id="1_3mqji"]
-[ext_resource type="PackedScene" uid="uid://ttqgcf2eq6f1" path="res://TaskDisplayList.tscn" id="2_x4av3"]
+[ext_resource type="Script" uid="uid://bm4l65g04j51k" path="res://MainScene.cs" id="1_uxrcv"]
+[ext_resource type="PackedScene" uid="uid://ttqgcf2eq6f1" path="res://Tasks/TaskDisplayList.tscn" id="2_x4av3"]
 [ext_resource type="PackedScene" uid="uid://b4bb5s1plvbx7" path="res://task_list_element.tscn" id="3_rpqi1"]
 
 [sub_resource type="Theme" id="Theme_1305s"]
@@ -14,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_uxrcv")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=671349599]
 layout_mode = 1
