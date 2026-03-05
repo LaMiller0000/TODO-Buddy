@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://no4tvuky6gl"]
+
+[ext_resource type="Script" uid="uid://c26osl54t3bb5" path="res://Tasks/CreateTaskPanel.cs" id="1_qbgrk"]
+
+[node name="CreateTask_Panel" type="Control" unique_id=1793479152]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qbgrk")
+
+[node name="Panel" type="Panel" parent="." unique_id=665995524]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Panel" unique_id=486230534]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+
+[connection signal="button_down" from="Panel/Button" to="." method="OnSlideResize_start"]
+[connection signal="button_up" from="Panel/Button" to="." method="OnSlideResize_stop"]

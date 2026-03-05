@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ttqgcf2eq6f1" path="res://Tasks/TaskDisplayList.tscn" id="1_8jh38"]
 [ext_resource type="Script" uid="uid://w0eilusxkxm4" path="res://Tasks/TaskListTab.cs" id="1_tuqwp"]
-[ext_resource type="PackedScene" uid="uid://b4bb5s1plvbx7" path="res://task_list_element.tscn" id="2_tuqwp"]
+[ext_resource type="PackedScene" uid="uid://b4bb5s1plvbx7" path="res://Tasks/task_list_element.tscn" id="2_tuqwp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8jh38"]
 content_margin_left = 4.0
