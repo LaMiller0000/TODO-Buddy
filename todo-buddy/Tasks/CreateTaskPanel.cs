@@ -45,7 +45,7 @@ public partial class CreateTaskPanel : Control
                     (SizeSnapPos[i] * GetParent<Control>().Size.Y) // translates the screen ratio to pixels
                     - (this.Size.Y + cursorPosYDelta * SnapVelocityExtrapolation)); // takes into account the cursor velocity so the pannel can be flicked into place
 
-            GD.Print($"{this.Size.Y} vs {(this.Size.Y + cursorPosYDelta * SnapVelocityExtrapolation)}");
+            //GD.Print($"{this.Size.Y} vs {(this.Size.Y + cursorPosYDelta * SnapVelocityExtrapolation)}");
 
             if (currentSnapPosDifference > smallestSnapPosDifference) continue; 
 

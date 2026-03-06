@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bbxsh4sa50lr4"]
 
 [ext_resource type="Script" uid="uid://bm4l65g04j51k" path="res://MainScene.cs" id="1_uxrcv"]
+[ext_resource type="Script" uid="uid://cb6aapol0815g" path="res://MainTabContainer.cs" id="2_rf2cd"]
 [ext_resource type="PackedScene" uid="uid://rqpcgsefl7yu" path="res://Tasks/TaskList_Tab.tscn" id="2_uxrcv"]
 [ext_resource type="Script" uid="uid://cthn6lre3l370" path="res://ButtonTest.cs" id="3_rpqi1"]
 [ext_resource type="PackedScene" uid="uid://no4tvuky6gl" path="res://Tasks/CreateTask_Panel.tscn" id="4_uxrcv"]
@@ -14,28 +15,28 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uxrcv")
 
-[node name="TabContainer" type="TabContainer" parent="." unique_id=872617047]
+[node name="Container" type="Container" parent="." unique_id=917336240 node_paths=PackedStringArray("tabContainer")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 34.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 2
+script = ExtResource("2_rf2cd")
+tabContainer = NodePath("TaskList_Tab")
 
-[node name="TaskList_Tab" parent="TabContainer" unique_id=279327588 instance=ExtResource("2_uxrcv")]
-visible = false
+[node name="TaskList_Tab" parent="Container" unique_id=279327588 instance=ExtResource("2_uxrcv")]
 layout_mode = 2
-metadata/_tab_index = 0
 
-[node name="Test Tab" type="ColorRect" parent="TabContainer" unique_id=848963998]
+[node name="Test Tab" type="ColorRect" parent="Container" unique_id=848963998]
 visible = false
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 color = Color(0.19212347, 1.92523e-06, 0.86461097, 1)
-metadata/_tab_index = 1
 
-[node name="Label" type="Label" parent="TabContainer/Test Tab" unique_id=334018678]
+[node name="Label" type="Label" parent="Container/Test Tab" unique_id=334018678]
 layout_mode = 0
 offset_left = 48.0
 offset_top = 27.0
@@ -44,7 +45,7 @@ offset_bottom = 256.0
 theme_override_font_sizes/font_size = 100
 text = ":("
 
-[node name="Label" type="Label" parent="TabContainer/Test Tab/Label" unique_id=80185863]
+[node name="Label" type="Label" parent="Container/Test Tab/Label" unique_id=80185863]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 141.0
@@ -53,7 +54,7 @@ offset_bottom = 370.0
 theme_override_font_sizes/font_size = 36
 text = "your windows phone ran into a problem :0"
 
-[node name="Button" type="Button" parent="TabContainer/Test Tab" unique_id=1700089930]
+[node name="Button" type="Button" parent="Container/Test Tab" unique_id=1700089930]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -69,7 +70,7 @@ grow_vertical = 0
 text = "This is a button"
 script = ExtResource("3_rpqi1")
 
-[node name="Label2" type="Label" parent="TabContainer/Test Tab" unique_id=1794567215]
+[node name="Label2" type="Label" parent="Container/Test Tab" unique_id=1794567215]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -85,14 +86,17 @@ text = "no idea why I did this for the test tab"
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="Create Task Testing Panel" type="Container" parent="TabContainer" unique_id=1387185603]
-layout_mode = 2
-metadata/_tab_index = 2
-
-[node name="CreateTask_Panel" parent="TabContainer/Create Task Testing Panel" unique_id=1793479152 instance=ExtResource("4_uxrcv")]
+[node name="Create Task Testing Panel" type="Container" parent="Container" unique_id=1387185603]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="." unique_id=107510]
+[node name="CreateTask_Panel" parent="Container/Create Task Testing Panel" unique_id=1793479152 instance=ExtResource("4_uxrcv")]
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="Container" unique_id=872617047]
+visible = false
+layout_mode = 2
+
+[node name="DevNote" type="Label" parent="." unique_id=107510]
 layout_mode = 0
 offset_left = -1.0
 offset_top = -239.0
