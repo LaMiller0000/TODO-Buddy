@@ -7,9 +7,13 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 16.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qbgrk")
+SizeSnapPos = PackedFloat32Array(0.1, 0.99, 0.45)
+SnapVelocityExtrapolation = -10.0
 
 [node name="Panel" type="Panel" parent="." unique_id=665995524]
 layout_mode = 1

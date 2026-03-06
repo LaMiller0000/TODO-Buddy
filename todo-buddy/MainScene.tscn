@@ -96,9 +96,12 @@ text = "no idea why I did this for the test tab"
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="CreateTask_Panel" parent="TabContainer" unique_id=1793479152 instance=ExtResource("4_uxrcv")]
+[node name="Create Task Testing Panel" type="Container" parent="TabContainer" unique_id=1387185603]
 layout_mode = 2
 metadata/_tab_index = 2
+
+[node name="CreateTask_Panel" parent="TabContainer/Create Task Testing Panel" unique_id=1793479152 instance=ExtResource("4_uxrcv")]
+layout_mode = 2
 
 [node name="Label" type="Label" parent="." unique_id=107510]
 layout_mode = 0
