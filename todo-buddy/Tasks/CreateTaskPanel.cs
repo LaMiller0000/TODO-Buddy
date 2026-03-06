@@ -5,7 +5,7 @@ public partial class CreateTaskPanel : Control
 {
     // when resizing the panel will go to the closest snap pos
     // measured as the ratio of the parent control's size
-    [Export] public float[] SizeSnapPos = new float[] {0.5f, 0.25f, 1.0f};
+    [Export] public float[] SizeSnapPos = new float[] {0.1f, 0.95f, 0.45f};
     [Export] public bool EnableSnapping = true;
     [Export] public float SnapHomeingSpeed = 2;
     // this is used when finding the closest snaping point
