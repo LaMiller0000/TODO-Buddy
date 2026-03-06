@@ -24,12 +24,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_rf2cd")
 tabContainer = NodePath("TaskList_Tab")
-
-[node name="TaskList_Tab" parent="Container" unique_id=279327588 instance=ExtResource("2_uxrcv")]
-layout_mode = 2
+TabChangeSwipeSpeed = 2.0
 
 [node name="Test Tab" type="ColorRect" parent="Container" unique_id=848963998]
-visible = false
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -86,14 +83,50 @@ text = "no idea why I did this for the test tab"
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="Create Task Testing Panel" type="Container" parent="Container" unique_id=1387185603]
-layout_mode = 2
-
-[node name="CreateTask_Panel" parent="Container/Create Task Testing Panel" unique_id=1793479152 instance=ExtResource("4_uxrcv")]
+[node name="TaskList_Tab" parent="Container" unique_id=279327588 instance=ExtResource("2_uxrcv")]
 layout_mode = 2
 
 [node name="TabContainer" type="TabContainer" parent="Container" unique_id=872617047]
 visible = false
+layout_mode = 2
+
+[node name="Test Tab2" type="ColorRect" parent="Container" unique_id=1317666345]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.5726816, 0, 0.2026417, 1)
+
+[node name="Label" type="Label" parent="Container/Test Tab2" unique_id=1941774086]
+layout_mode = 0
+offset_left = 530.0
+offset_top = 275.0
+offset_right = 870.0
+offset_bottom = 504.0
+theme_override_font_sizes/font_size = 100
+text = "rED"
+
+[node name="Button" type="Button" parent="Container/Test Tab2" unique_id=348341252]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.305
+anchor_top = 0.393
+anchor_right = 0.305
+anchor_bottom = 0.393
+offset_left = -225.4
+offset_top = -86.56
+offset_right = 224.6
+offset_bottom = 87.44
+grow_horizontal = 2
+grow_vertical = 0
+text = "This is a button"
+script = ExtResource("3_rpqi1")
+
+[node name="Create Task Testing Panel" type="Container" parent="Container" unique_id=1387185603]
+layout_mode = 2
+
+[node name="CreateTask_Panel" parent="Container/Create Task Testing Panel" unique_id=1793479152 instance=ExtResource("4_uxrcv")]
 layout_mode = 2
 
 [node name="DevNote" type="Label" parent="." unique_id=107510]
