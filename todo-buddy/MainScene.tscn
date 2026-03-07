@@ -15,7 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uxrcv")
 
-[node name="Container" type="Container" parent="." unique_id=917336240 node_paths=PackedStringArray("tabContainer")]
+[node name="Container" type="Container" parent="." unique_id=917336240]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,10 +23,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_rf2cd")
-tabContainer = NodePath("TaskList_Tab")
-TabChangeSwipeSpeed = 2.0
+
+[node name="TaskList_Tab" parent="Container" unique_id=279327588 instance=ExtResource("2_uxrcv")]
+layout_mode = 2
 
 [node name="Test Tab" type="ColorRect" parent="Container" unique_id=848963998]
+visible = false
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -83,13 +85,6 @@ text = "no idea why I did this for the test tab"
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="TaskList_Tab" parent="Container" unique_id=279327588 instance=ExtResource("2_uxrcv")]
-layout_mode = 2
-
-[node name="TabContainer" type="TabContainer" parent="Container" unique_id=872617047]
-visible = false
-layout_mode = 2
-
 [node name="Test Tab2" type="ColorRect" parent="Container" unique_id=1317666345]
 visible = false
 custom_minimum_size = Vector2(100, 100)
@@ -124,6 +119,7 @@ text = "This is a button"
 script = ExtResource("3_rpqi1")
 
 [node name="Create Task Testing Panel" type="Container" parent="Container" unique_id=1387185603]
+visible = false
 layout_mode = 2
 
 [node name="CreateTask_Panel" parent="Container/Create Task Testing Panel" unique_id=1793479152 instance=ExtResource("4_uxrcv")]
@@ -139,3 +135,9 @@ text = "TODO: I think we should add custom buttons to switch tabs, also I think 
 
 At the very least the tabs need to be way larger and not as close to the top of the screen"
 autowrap_mode = 3
+
+[node name="TabContainer" type="TabContainer" parent="." unique_id=872617047]
+visible = false
+layout_mode = 0
+offset_right = 1080.0
+offset_bottom = 1920.0

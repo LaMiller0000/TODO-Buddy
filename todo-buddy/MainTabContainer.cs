@@ -1,33 +1,44 @@
 using Godot;
 using System;
 using System.Linq;
+using System.Runtime.InteropServices;
 
-//[Tool]
+[Tool]
 public partial class MainTabContainer : Container
 {
-    //[Export] public int currentTab = -1;
-    [Export] public Control tabContainer;
+    // cannot be 0
+    [Export] public float smoothScreenTransition = 2;
 
+    // multiplies how much the final swipe velocity affects the final swipe position
+    // when done swiping this multiplys the final position with the velocity 
+    // low values = you need to fully swipe past the screen transition to switch screens
+    // high values = you would only need to swipe a little distance at a fast speed to switch screens
+    [Export] public float ChangeTabFlickPower = 5.0f;
+
+    [ExportGroup("Swipe Speed Threshold")]
     // this controls how fast you have to drag to change tabs
-    [Export] public float TabChangeSwipeSpeed = 10.0f; //TODO: remove if unused
+    [Export] public float HorizontalSwipeSpeedThreshold = 10.0f; 
     // if the swipe goes above this threshold before it it will lock out the horizontal 
-    [Export] public float VerticalSwipeSpeedTabChangeLockout = 10.0f;
+    [Export] public float VerticalSwipeSpeedThreshold = 10.0f;
 
     private Vector2 _defaultPosition = Vector2.Zero;
-
-    private SwipeDirection _swipeDirection = SwipeDirection.None;
-
-    private float _screenSwipePercentage = 0.0f;
-
-    //private Godot.Collections.Array<Node> children;
     private Control[] _children;
 
+    // this keeps track if the swipe is horizontal (or vertical) 
+    private SwipeDirection _swipeDirection = SwipeDirection.None;
     private enum SwipeDirection
     {
         None = 0,
         Horizontal = 1,
         Vertical = 2,
     }
+
+    // the distance the swipe is between screens
+    // 0 is not moved at all,
+    // 1 is all the way to Next screen,
+    //-1 is all the way to the Previous screen,
+    private float _screenSwipeRatio = 0.0f;
+
 
     public override void _Ready()
     {
@@ -36,52 +47,57 @@ public partial class MainTabContainer : Container
 
     public override void _Notification(int what)
     {
-        //GD.Print($"_Notification: {what}");
-
-        if (what == NotificationTransformChanged && Engine.IsEditorHint())
+        switch (what)
         {
-            _defaultPosition = Position;
-            //GD.Print("NotificationTransformChanged");
+            // updates the default position when this control moves or anything like that
+            case (int)NotificationTransformChanged:
+                if (Engine.IsEditorHint()) _defaultPosition = Position;
+                break;
+
+            // updates the container's children 
+            case (int)NotificationSortChildren:
+                //GD.Print("NotificationSortChildren");
+                _children = GetChildren().OfType<Control>().ToArray<Control>();
+
+                foreach (Control child in _children)
+                {
+                    FitChildInRect(child,
+                        new Rect2(x: 0, y: 0, Size));
+                    child.Visible = false;
+                }
+
+                Control current = _children[0];
+                current.Visible = true;
+                current.Position = Vector2.Zero;
+
+                //if (_swipeDirection == SwipeDirection.Horizontal)
+                switch (_screenSwipeRatio)
+                {
+                    case (> 0f): DisplayNextTab(); break;
+                    case (< 0f): DisplayPrevTab(); break;
+                }
+                break;
         }
 
-        if (what == NotificationSortChildren)
-        {
-            //GD.Print($"NotificationSortChildren");
-
-            _children = GetChildren().OfType<Control>().ToArray<Control>();
-
-            foreach (Control child in _children)
-            {
-                //GD.Print($"  -  {child.Name}");
-                FitChildInRect(child,
-                    new Rect2(x: 0, y: 0, Size));
-                child.Visible = false;
-            }
-
-            MoveNextAndPrevChildren();
-
-        }
 
     }
 
-    private void MoveNextAndPrevChildren()
+    private void DisplayNextTab() // moves the next one to right side
     {
-        Control current = _children[0];
-        current.Visible = true;
-        current.Position = Vector2.Zero;
-
-        //move the next one to the right side
         Control next = _children[1];
         next.Visible = true;
-        next.Position = new Vector2(this.Size.X, 0);
+        next.Position = new Vector2(this.Size.X, 0); //FitChildInRect(next, new Rect2(this.Size.X, 0, Size));
 
-        // moves the last on the the left side
+        //GD.Print($"Display Next Tab: {next.Name}");
+    }
+    private void DisplayPrevTab() // moves the last one to the left side
+    {
         Control prev = _children[_children.Length - 1];
         prev.Visible = true;
         prev.Position = new Vector2(-this.Size.X, 0);
-    }
 
-    private void Display Next 
+        //GD.Print($"Display Previous Tab: {prev.Name}");
+    }
 
     public override void _Input(InputEvent @event)
     {
@@ -93,13 +109,13 @@ public partial class MainTabContainer : Container
             if (_swipeDirection == SwipeDirection.None)
             {
                 // Vertical swipe lock in
-                if (Math.Abs(dragEvent.ScreenRelative.Y) > VerticalSwipeSpeedTabChangeLockout)
+                if (Math.Abs(dragEvent.ScreenRelative.Y) > VerticalSwipeSpeedThreshold)
                 {
                     _swipeDirection = SwipeDirection.Vertical;
                 }
 
                 // Horizontal swipe lock in
-                if (Math.Abs(dragEvent.ScreenRelative.X) > TabChangeSwipeSpeed)
+                if (Math.Abs(dragEvent.ScreenRelative.X) > HorizontalSwipeSpeedThreshold)
                 {
                     _swipeDirection = SwipeDirection.Horizontal;
                 }
@@ -132,47 +148,61 @@ public partial class MainTabContainer : Container
         }
     }
 
+
     public void Swipe(InputEventScreenDrag dragEvent)
     {
         if (Engine.IsEditorHint()) return; // stops if running in the editor
 
         float positionDelta = dragEvent.ScreenRelative.X;
-
-        /*_children[0].*/Position += new Vector2(positionDelta, 0);
+        Position += new Vector2(positionDelta, 0);
 
         float totalPosDelta = (0 - Position.X);
+        totalPosDelta -= dragEvent.ScreenRelative.X * ChangeTabFlickPower;
 
-        totalPosDelta += dragEvent.ScreenRelative.X * 1;
+        _screenSwipeRatio = totalPosDelta / MainScene.Instance.ViewportResolution.X;
 
-        _screenSwipePercentage = totalPosDelta / MainScene.Instance.ViewportResolution.X;
+        //GD.Print($"screenSwipePercentage: {_screenSwipeRatio}");
 
-        GD.Print($"screenSwipePercentage: {_screenSwipePercentage}");
-
+        // redraws the children 
+        _Notification((int)NotificationSortChildren);
     }
 
     // when swiping ends this will round to whatever screen is closest
     public void EndSwipe()
     {
-        //TODO: fully implement
-        GD.Print($"screenSwipePercentage: {_screenSwipePercentage}");
-        switch (_screenSwipePercentage)
+        //GD.Print($"screenSwipePercentage: {_screenSwipeRatio}");
+        switch (_screenSwipeRatio)
         {
             case > 0.5f:
                 MoveChild(_children[0], _children.Length - 1);
-                //Position = _defaultPosition - new Vector2(Size.X, 5);
+                Position = new Vector2(-Position.X, 0);
                 break;
             case < -0.5f:
                 MoveChild(_children[_children.Length - 1], 0);
-                //Position = _defaultPosition + new Vector2(Size.X, 5);
-                break;
-            default:
+                Position = new Vector2(-Position.X, 0);
                 break;
         }
 
-        //tabContainer.
-        Position = _defaultPosition;
+        //Position = _defaultPosition;
     }
-    
+
+    public override void _Process(double delta)
+    {
+
+        if (_swipeDirection != SwipeDirection.Horizontal)
+        {
+            if (Position.DistanceTo(_defaultPosition) > 0.1f)
+            {
+                Position -= (Position - _defaultPosition) / smoothScreenTransition;
+                //Position *= (float)delta;
+            }
+            else
+            {
+                Position = _defaultPosition;
+                //EndSwipe();
+            }
+        }
+    }
 }
 
 
