@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class TestDialog : Node2D
+public partial class DialogPlayer : Node2D
 {
 	
 	private int talkCount = 0;
@@ -18,12 +18,12 @@ public partial class TestDialog : Node2D
 	private RichTextLabel text;
 	private Timer timer;
 
-	public TestDialog()
+	public DialogPlayer()
 	{
 		_waitTime = 0.1f;
 	}
 	
-	public TestDialog(float waitTime, string[] _textArray, Vector2 _position, int _fontSize)
+	public DialogPlayer(float waitTime, string[] _textArray, Vector2 _position, int _fontSize)
 	{
 		_waitTime = waitTime;
 		textArray = _textArray;

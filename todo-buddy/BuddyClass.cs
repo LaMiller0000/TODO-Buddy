@@ -1,4 +1,5 @@
 using System;
+using Godot;
 
 namespace TODOBuddy;
 
@@ -10,12 +11,22 @@ public class BuddyClass
     private string description;
     private int health;
     private Behaviours behaviour;
+    //private DialogRoot dialog; //don't know the best way to incorporate dialog
     
     public BuddyClass(int id) =>
     (this.id, name, description, health) = (id, "John", "A TODO Buddy", 10);
     
     public BuddyClass(int id, string name, string description, int health) =>
     (this.id, this.name, this.description, this.health) = (id, name, description, health);
+    
+    //public BuddyClass(int id, string name, string description, int health, string[] text) =>
+    //    (this.id, this.name, this.description, this.health, dialog.txt) = (id, name, description, health, text);
+    
+    //private void setFont(int fontSize) => dialog.textScale = fontSize;
+    //private void setTextSpeed(float textSpeed) => textSpeed = textSpeed;
+    //private void setDimension(Vector2 dimension) => dialog.dimension = dimension;
+    //private void setText(string[] text) => dialog.txt = text;
+    //public void setDialog() => dialog = new DialogRoot();
     
     public int getId() => id;
     public string getName() => name;
