@@ -3,9 +3,10 @@ using System;
 
 public partial class TaskListTab : Control
 {
+    [Export] public CreateTaskPanel CreateTaskPanel;
 	public override void _Ready()
 	{
-
+        CreateTaskPanel.ClosePanel();
 	}
 	public void OnFilterChanged(int index)
 	{
@@ -15,6 +16,8 @@ public partial class TaskListTab : Control
     public void OnCreateButtonPressed()
     {
         // pull up for creating new tasks
-        throw new NotImplementedException("tried to run OnCreateButtonPressed() which is not implemented yet");
+
+        CreateTaskPanel.OpenPanel();
+        //throw new NotImplementedException("tried to run OnCreateButtonPressed() which is not implemented yet");
     }
 }

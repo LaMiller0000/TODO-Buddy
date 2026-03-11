@@ -1,17 +1,32 @@
+using System;
+using Godot;
+
 namespace TODOBuddy;
 
 public class BuddyClass
 {
+    
     private int id;
     private string name;
     private string description;
     private int health;
+    private Behaviours behaviour;
+    //private DialogRoot dialog; //don't know the best way to incorporate dialog
     
     public BuddyClass(int id) =>
     (this.id, name, description, health) = (id, "John", "A TODO Buddy", 10);
     
     public BuddyClass(int id, string name, string description, int health) =>
     (this.id, this.name, this.description, this.health) = (id, name, description, health);
+    
+    //public BuddyClass(int id, string name, string description, int health, string[] text) =>
+    //    (this.id, this.name, this.description, this.health, dialog.txt) = (id, name, description, health, text);
+    
+    //private void setFont(int fontSize) => dialog.textScale = fontSize;
+    //private void setTextSpeed(float textSpeed) => textSpeed = textSpeed;
+    //private void setDimension(Vector2 dimension) => dialog.dimension = dimension;
+    //private void setText(string[] text) => dialog.txt = text;
+    //public void setDialog() => dialog = new DialogRoot();
     
     public int getId() => id;
     public string getName() => name;
@@ -21,6 +36,28 @@ public class BuddyClass
     public void setName(string name) => this.name = name;
     public void setDescription(string description) => this.description = description;
     public void setHealth(int health) => this.health = health;
+
+    public void chechHealth(Behaviours behaviour)
+    {
+        switch (health)
+        {
+            case >= 10:
+                setBehaviour(Behaviours.HAPPY);
+                break;
+            case >= 5 when health < 10:
+                setBehaviour(Behaviours.IDLE);
+                break;
+            case >= 1 when health < 5:
+                setBehaviour(Behaviours.HURT_IDLE);
+                break;
+            case 0:
+                setBehaviour(Behaviours.DEAD);
+                break;
+            default:
+                Console.WriteLine("No valid health!");
+                break;
+        }
+    }
 
     public void getHurt(int damage = 0)
     {
@@ -42,4 +79,6 @@ public class BuddyClass
     {
         
     }
+    
+    public void setBehaviour(Behaviours behaviour) => this.behaviour = behaviour;
 }
