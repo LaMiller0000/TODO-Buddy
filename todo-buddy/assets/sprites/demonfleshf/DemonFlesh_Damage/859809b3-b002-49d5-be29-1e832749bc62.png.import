@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cofbup1ut2xjd"
-path="res://.godot/imported/859809b3-b002-49d5-be29-1e832749bc62.png-3becb6fd8fd630627ee7cd7c392fc7fa.ctex"
+path="res://.godot/imported/859809b3-b002-49d5-be29-1e832749bc62.png-bd64267fc3038abd1817f720f70d9095.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/DemonFlesh_Damage/859809b3-b002-49d5-be29-1e832749bc62.png"
-dest_files=["res://.godot/imported/859809b3-b002-49d5-be29-1e832749bc62.png-3becb6fd8fd630627ee7cd7c392fc7fa.ctex"]
+source_file="res://assets/sprites/demonfleshf/DemonFlesh_Damage/859809b3-b002-49d5-be29-1e832749bc62.png"
+dest_files=["res://.godot/imported/859809b3-b002-49d5-be29-1e832749bc62.png-bd64267fc3038abd1817f720f70d9095.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c52lax8x3vvvl"
-path="res://.godot/imported/c0f553f8-4362-49ab-9923-34e250cf471d.png-1d1c7365e1e55875624bee5b3fd945dd.ctex"
+path="res://.godot/imported/c0f553f8-4362-49ab-9923-34e250cf471d.png-b21ddae014cf15c17f7d454bc7542f02.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/DemonRed_Jump/c0f553f8-4362-49ab-9923-34e250cf471d.png"
-dest_files=["res://.godot/imported/c0f553f8-4362-49ab-9923-34e250cf471d.png-1d1c7365e1e55875624bee5b3fd945dd.ctex"]
+source_file="res://assets/sprites/demonredf/DemonRed_Jump/c0f553f8-4362-49ab-9923-34e250cf471d.png"
+dest_files=["res://.godot/imported/c0f553f8-4362-49ab-9923-34e250cf471d.png-b21ddae014cf15c17f7d454bc7542f02.ctex"]
 
 [params]
 

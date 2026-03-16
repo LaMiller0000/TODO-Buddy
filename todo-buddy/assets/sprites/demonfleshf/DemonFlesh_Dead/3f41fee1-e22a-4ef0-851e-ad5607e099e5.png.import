@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvis145jk5r8q"
-path="res://.godot/imported/3f41fee1-e22a-4ef0-851e-ad5607e099e5.png-0aca7cb11dd16d3b140998b05b3eeaf3.ctex"
+path="res://.godot/imported/3f41fee1-e22a-4ef0-851e-ad5607e099e5.png-1b55ddaf1a623185a527845de8772d71.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/DemonFlesh_Dead/3f41fee1-e22a-4ef0-851e-ad5607e099e5.png"
-dest_files=["res://.godot/imported/3f41fee1-e22a-4ef0-851e-ad5607e099e5.png-0aca7cb11dd16d3b140998b05b3eeaf3.ctex"]
+source_file="res://assets/sprites/demonfleshf/DemonFlesh_Dead/3f41fee1-e22a-4ef0-851e-ad5607e099e5.png"
+dest_files=["res://.godot/imported/3f41fee1-e22a-4ef0-851e-ad5607e099e5.png-1b55ddaf1a623185a527845de8772d71.ctex"]
 
 [params]
 

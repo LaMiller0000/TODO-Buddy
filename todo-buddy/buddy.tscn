@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b5ad2slxdx877" path="res://assets/sprites/BLUE_HERO/BlueKnightHero/117914a7-114d-4528-8185-4333c34600a0.png" id="4_d4csy"]
 [ext_resource type="Texture2D" uid="uid://c32grjd0g0wdc" path="res://assets/sprites/GOLD_SLIME/GoldSlime/14e2107b-dc94-4c25-9fe1-9fac9846d94c.png" id="5_qkf00"]
 [ext_resource type="Texture2D" uid="uid://cyi4d1lxi8vid" path="res://assets/sprites/GOLD_SLIME/Boss08_C/7622f5da-563d-4895-b66d-2341f1e61493.png" id="6_lb52b"]
+[ext_resource type="Texture2D" path="res://assets/sprites/EyeDemonRed/0ae2c385-bdac-4a92-a0a2-5c773120a4cd.png" id="7_qkf00"]
+[ext_resource type="Texture2D" uid="uid://bdslufxqsmahe" path="res://assets/sprites/RED_EYE_DEMON/DemonDarkRed/a0b2b8e3-91d0-4bf2-b7c5-eb53745abe6d.png" id="8_lb52b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kks6d"]
 atlas = ExtResource("1_lkudw")
@@ -295,40 +297,187 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4rdd"]
+atlas = ExtResource("7_qkf00")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17moj"]
+atlas = ExtResource("7_qkf00")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3ff3"]
+atlas = ExtResource("7_qkf00")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uonmw"]
+atlas = ExtResource("7_qkf00")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_koivd"]
+atlas = ExtResource("7_qkf00")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_my3jo"]
+atlas = ExtResource("7_qkf00")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dsmnn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4rdd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17moj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17moj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17moj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17moj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3ff3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uonmw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_koivd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_my3jo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4rdd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4rdd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17moj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfoy8"]
+atlas = ExtResource("8_lb52b")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u438p"]
+atlas = ExtResource("8_lb52b")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkhdr"]
+atlas = ExtResource("8_lb52b")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjtm7"]
+atlas = ExtResource("8_lb52b")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dv8c"]
+atlas = ExtResource("8_lb52b")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kophg"]
+atlas = ExtResource("8_lb52b")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nf4vi"]
+atlas = ExtResource("8_lb52b")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_42tcb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfoy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u438p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkhdr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkhdr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjtm7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dv8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kophg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nf4vi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nf4vi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ar5cs"]
+
 [node name="Buddy" type="CharacterBody2D" unique_id=1199989460]
 
 [node name="SpriteBlueSlime" type="AnimatedSprite2D" parent="." unique_id=350988755]
-position = Vector2(17, -67)
+position = Vector2(15, -225)
 sprite_frames = SubResource("SpriteFrames_lb52b")
 frame = 4
 frame_progress = 0.3086589
 
 [node name="SpriteBlueSlimeEvolved" type="AnimatedSprite2D" parent="." unique_id=821149400]
-position = Vector2(17, -51)
+position = Vector2(17, -180)
 sprite_frames = SubResource("SpriteFrames_g4rdd")
 frame = 2
 frame_progress = 0.92156976
 
 [node name="SpriteBlueHero" type="AnimatedSprite2D" parent="." unique_id=1182013160]
-position = Vector2(45, -64)
+position = Vector2(-227, -213)
 sprite_frames = SubResource("SpriteFrames_ncewb")
 frame = 3
 frame_progress = 0.88037825
 
 [node name="SpriteBlueHeroEvolved" type="AnimatedSprite2D" parent="." unique_id=421007742]
-position = Vector2(46, -38)
+position = Vector2(-227, -173)
 sprite_frames = SubResource("SpriteFrames_bqynn")
 frame = 6
 frame_progress = 0.9868101
 
 [node name="SpriteGoldSlime" type="AnimatedSprite2D" parent="." unique_id=1127613861]
-position = Vector2(69, -67)
+position = Vector2(112, -210)
 sprite_frames = SubResource("SpriteFrames_17moj")
 frame = 1
 frame_progress = 0.17871325
 
 [node name="SpriteGoldSlimeEvolved" type="AnimatedSprite2D" parent="." unique_id=972126657]
-position = Vector2(72, -50)
+position = Vector2(115, -175)
 sprite_frames = SubResource("SpriteFrames_p3ff3")
 frame = 3
 frame_progress = 0.36680374
+
+[node name="SpriteDarkRedDemon" type="AnimatedSprite2D" parent="." unique_id=1998372934]
+position = Vector2(181, -213)
+sprite_frames = SubResource("SpriteFrames_dsmnn")
+frame_progress = 0.9014168
+
+[node name="SpriteDarkRedDemonEvolved" type="AnimatedSprite2D" parent="." unique_id=552918126]
+position = Vector2(186, -163)
+sprite_frames = SubResource("SpriteFrames_42tcb")
+frame = 7
+frame_progress = 0.55251586
+
+[node name="SpriteOrangeSlime" type="AnimatedSprite2D" parent="." unique_id=918947916]
+sprite_frames = SubResource("SpriteFrames_ar5cs")

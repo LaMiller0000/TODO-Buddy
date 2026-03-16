@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dw32toucxjob6"
-path="res://.godot/imported/5da92654-d467-4c05-a360-47ebd63cad17.png-5ecd4438ba9de6c4b4ca1afd50edda35.ctex"
+path="res://.godot/imported/5da92654-d467-4c05-a360-47ebd63cad17.png-03415ff945de882346b205b34236504e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/GolemTiny_2/layers/e1ef2f05-c114-4437-9d0c-afe5dd10095d/5da92654-d467-4c05-a360-47ebd63cad17.png"
-dest_files=["res://.godot/imported/5da92654-d467-4c05-a360-47ebd63cad17.png-5ecd4438ba9de6c4b4ca1afd50edda35.ctex"]
+source_file="res://assets/sprites/tinygolem/GolemTiny_2/layers/e1ef2f05-c114-4437-9d0c-afe5dd10095d/5da92654-d467-4c05-a360-47ebd63cad17.png"
+dest_files=["res://.godot/imported/5da92654-d467-4c05-a360-47ebd63cad17.png-03415ff945de882346b205b34236504e.ctex"]
 
 [params]
 

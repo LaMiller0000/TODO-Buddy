@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bl2wrcq8drlda"
-path="res://.godot/imported/92e00012-46cc-45c2-978e-8764eb760f1c.png-2a8fe1c7716a6607580455c3c1247979.ctex"
+path="res://.godot/imported/92e00012-46cc-45c2-978e-8764eb760f1c.png-d6fb0f0c690b41c5b43fe8d229d0a5df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Boss08_D360/92e00012-46cc-45c2-978e-8764eb760f1c.png"
-dest_files=["res://.godot/imported/92e00012-46cc-45c2-978e-8764eb760f1c.png-2a8fe1c7716a6607580455c3c1247979.ctex"]
+source_file="res://assets/sprites/boss8/Boss08_D360/92e00012-46cc-45c2-978e-8764eb760f1c.png"
+dest_files=["res://.godot/imported/92e00012-46cc-45c2-978e-8764eb760f1c.png-d6fb0f0c690b41c5b43fe8d229d0a5df.ctex"]
 
 [params]
 

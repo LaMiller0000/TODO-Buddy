@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cm34kxydrtnu7"
-path="res://.godot/imported/21097c56-e0d9-4921-b3f3-d96860040ca4.png-c019a4e8aaf5aa888bd0a3421fc17a2b.ctex"
+path="res://.godot/imported/21097c56-e0d9-4921-b3f3-d96860040ca4.png-18e876cd170305fb1ed04d9019673ee2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/GreenSlime_Walk/layers/adf24ad2-5388-4887-9b3e-742ac2a8e731/21097c56-e0d9-4921-b3f3-d96860040ca4.png"
-dest_files=["res://.godot/imported/21097c56-e0d9-4921-b3f3-d96860040ca4.png-c019a4e8aaf5aa888bd0a3421fc17a2b.ctex"]
+source_file="res://assets/sprites/greenslimef/GreenSlime_Walk/layers/adf24ad2-5388-4887-9b3e-742ac2a8e731/21097c56-e0d9-4921-b3f3-d96860040ca4.png"
+dest_files=["res://.godot/imported/21097c56-e0d9-4921-b3f3-d96860040ca4.png-18e876cd170305fb1ed04d9019673ee2.ctex"]
 
 [params]
 

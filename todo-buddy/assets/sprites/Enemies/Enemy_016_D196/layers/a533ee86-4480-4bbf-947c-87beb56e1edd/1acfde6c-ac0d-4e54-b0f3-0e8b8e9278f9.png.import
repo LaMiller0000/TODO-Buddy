@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqvb5g0v0indd"
-path="res://.godot/imported/1acfde6c-ac0d-4e54-b0f3-0e8b8e9278f9.png-84fc30f1405d499b638e4b65e80c5c82.ctex"
+path="res://.godot/imported/1acfde6c-ac0d-4e54-b0f3-0e8b8e9278f9.png-b117ac60155f1d64c47c5b7fa747b5dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Enemy_016_D196/layers/a533ee86-4480-4bbf-947c-87beb56e1edd/1acfde6c-ac0d-4e54-b0f3-0e8b8e9278f9.png"
-dest_files=["res://.godot/imported/1acfde6c-ac0d-4e54-b0f3-0e8b8e9278f9.png-84fc30f1405d499b638e4b65e80c5c82.ctex"]
+source_file="res://assets/sprites/Enemies/Enemy_016_D196/layers/a533ee86-4480-4bbf-947c-87beb56e1edd/1acfde6c-ac0d-4e54-b0f3-0e8b8e9278f9.png"
+dest_files=["res://.godot/imported/1acfde6c-ac0d-4e54-b0f3-0e8b8e9278f9.png-b117ac60155f1d64c47c5b7fa747b5dd.ctex"]
 
 [params]
 

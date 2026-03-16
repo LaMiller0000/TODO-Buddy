@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6q1p7edxyquv"
-path="res://.godot/imported/9e5ad102-3306-4f49-9c0f-b86876da8a8e.png-fabcece02d9102286b5a833dc3f87608.ctex"
+path="res://.godot/imported/9e5ad102-3306-4f49-9c0f-b86876da8a8e.png-2687480a563a6e215ddf75cc00c7379c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/GolemBigRed_1/9e5ad102-3306-4f49-9c0f-b86876da8a8e.png"
-dest_files=["res://.godot/imported/9e5ad102-3306-4f49-9c0f-b86876da8a8e.png-fabcece02d9102286b5a833dc3f87608.ctex"]
+source_file="res://assets/sprites/redgolembig/GolemBigRed_1/9e5ad102-3306-4f49-9c0f-b86876da8a8e.png"
+dest_files=["res://.godot/imported/9e5ad102-3306-4f49-9c0f-b86876da8a8e.png-2687480a563a6e215ddf75cc00c7379c.ctex"]
 
 [params]
 

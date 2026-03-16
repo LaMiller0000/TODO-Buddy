@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://buxfnlyifj0by"
-path="res://.godot/imported/341c8b11-9850-466e-983c-efaf5270e9c5.png-a72d9eafe7ff8010f6684d3acd033519.ctex"
+path="res://.godot/imported/341c8b11-9850-466e-983c-efaf5270e9c5.png-7fdfd38dcd318903109f735395038f80.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/GreenHero_Idle/layers/140dc98f-1eae-47bb-b627-bba459134b02/341c8b11-9850-466e-983c-efaf5270e9c5.png"
-dest_files=["res://.godot/imported/341c8b11-9850-466e-983c-efaf5270e9c5.png-a72d9eafe7ff8010f6684d3acd033519.ctex"]
+source_file="res://assets/sprites/greenherof/GreenHero_Idle/layers/140dc98f-1eae-47bb-b627-bba459134b02/341c8b11-9850-466e-983c-efaf5270e9c5.png"
+dest_files=["res://.godot/imported/341c8b11-9850-466e-983c-efaf5270e9c5.png-7fdfd38dcd318903109f735395038f80.ctex"]
 
 [params]
 
