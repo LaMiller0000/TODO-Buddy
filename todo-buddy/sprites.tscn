@@ -1619,7 +1619,7 @@ sprite_frames = SubResource("SpriteFrames_i4gny")
 animation = &"defaultDead"
 
 [node name="ORANGESLIME" type="AnimatedSprite2D" parent="." unique_id=370053804]
-position = Vector2(167, 35)
+position = Vector2(209, -36)
 sprite_frames = SubResource("SpriteFrames_ajsyk")
 animation = &"evolvedSleep"
 
