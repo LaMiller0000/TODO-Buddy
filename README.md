@@ -21,6 +21,9 @@
     COMMUNICATION: DISCORD
     PLANNING: DRAW.IO
     LANGUAGES: Java, GDScript
+
+##Assets
+    Rogue Adventure World – ElvGames
     
 ### Goals
     As a user I want my list to adapt to my needs so I can use it in all scenerios.
@@ -57,6 +60,19 @@ Final Technical Report | 04.25.26 | Objective: As a group, finalize your 15 page
             - Behaviors: SLEEP, HURT, PLAY, DEAD, IDLE, HAPPY
             - Dialog
         Research sprint on Godot
+    Report 3:
+        Added addtional screens such as main, test, display list tab and a task creation panel
+        Added tab container to hold each tab in view 
+        Added a viewport resolution script
+        Added 5 complete animations for buddies, with 3 default and 3 evolved animations
+        Added features to display list tab
+            has buttons and display list scene
+            sorting options dropdown
+            create new tab button
+            task creation panel
+            swipe interactable in certain areas
+        Organized the project, and project folders in related areas.
+        Added funtions to set sixe dictation, speed and font size for dialog
 
 ## Individual Contributions
 ### Penny - Developer
@@ -76,7 +92,15 @@ Final Technical Report | 04.25.26 | Objective: As a group, finalize your 15 page
         - Created Enum for buddy class behaviors
             - Sleep, Dead, Idle, Play, Hurt, Happy
         - Added Dialog Script
-
+    Report 3:
+        -	Removed magic numbers from the buddy code
+            - Size dictation, Speed, Font size for dialog
+        -   Added functions
+            - Getters and setters for the former magic number functions
+        -   Renamed functions
+            - TestDialogRoot  DialogRoot
+            - TestDialog  DialogPlayer
+            
 ### Gary - Developer
     Report 1:
         - Created outline of application
@@ -99,6 +123,24 @@ Final Technical Report | 04.25.26 | Objective: As a group, finalize your 15 page
         - Created list element
         - Created task display list
         - Modification to the buddy system for task system interaction.
+    Report 3:
+        - Added main and test screen
+        - Added display list tab and task creation panel
+        - Added features to the main screen
+            - tab container that will hold each tab in each view
+            - created script for the main screen for viewport resolution
+        - Added change text button to test screen
+        - features to display lsit tab
+            - has buttons and display list scene
+            - sorting options dropdown
+            - create new tab button
+            - task creation panel
+        - features to task creation panel
+            - swipe interactable within certain areas
+            - designed for object oriented implementation in mind to edit task data
+                - add button
+                - text boxes
+        - moved task related file into the task folder instead of just in the project root directory
 
 ### Emma - Developer, Documentation Lead
     Report 1:
@@ -114,6 +156,18 @@ Final Technical Report | 04.25.26 | Objective: As a group, finalize your 15 page
         - Research spike on Godot Engine:
             - Learned about IDE structure and OOP structure with GDScript
         - Found sprites for Buddy work
-
-##Assets
-    Rogue Adventure World – ElvGames
+    Report 3:
+        - Developed documentation and weekly reports
+        - Updated the README on github
+        - Sprite work with the existing sprites that I found last week
+        - Animating sprites
+            - Blue slime
+            - Blue hero
+            - Gold slime
+            - Orange slime
+            - Red demon
+            - Large red demon
+        - Trouble shooting missing scene in Godot
+        - Re animated the sprites from the previous list, with extended animations such as:
+            - default and evolved
+            - idle, sleep and dead for both default and evolved versions
