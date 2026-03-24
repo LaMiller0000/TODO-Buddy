@@ -1600,36 +1600,36 @@ animations = [{
 }]
 
 [node name="Buddy" type="Node2D" unique_id=716602257]
+position = Vector2(-284, 152)
 
 [node name="BLUEHERO" type="AnimatedSprite2D" parent="." unique_id=500520404]
-position = Vector2(81, -24)
+position = Vector2(111, -121)
 sprite_frames = SubResource("SpriteFrames_6b4yh")
 animation = &"evolvedDead"
 frame_progress = 0.21969783
 
 [node name="BLUESLIME" type="AnimatedSprite2D" parent="." unique_id=771857504]
-position = Vector2(80, -80)
+position = Vector2(177, -123)
 sprite_frames = SubResource("SpriteFrames_wica1")
 animation = &"defaultSleep"
 frame_progress = 0.49101222
 
 [node name="GOLDSLIME" type="AnimatedSprite2D" parent="." unique_id=586809629]
-position = Vector2(127, -80)
+position = Vector2(204, -124)
 sprite_frames = SubResource("SpriteFrames_i4gny")
 animation = &"defaultDead"
 
 [node name="ORANGESLIME" type="AnimatedSprite2D" parent="." unique_id=370053804]
-position = Vector2(209, -36)
+position = Vector2(164, -76)
 sprite_frames = SubResource("SpriteFrames_ajsyk")
 animation = &"evolvedSleep"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1117051677]
-position = Vector2(36, -86)
+position = Vector2(150, -122)
 sprite_frames = SubResource("SpriteFrames_1npu4")
-animation = &"evolvedDead"
-frame_progress = 0.1270891
+animation = &"defaultDead"
 
 [node name="REDEYEDEMON" type="AnimatedSprite2D" parent="." unique_id=2121777239]
-position = Vector2(131, -116)
+position = Vector2(238, -131)
 sprite_frames = SubResource("SpriteFrames_jiyvt")
 animation = &"defaultSleep"
