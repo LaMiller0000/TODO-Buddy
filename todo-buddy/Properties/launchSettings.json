@@ -1,0 +1,20 @@
+{
+  "profiles": {
+    "TODOBuddy": {
+      "commandName": "Project",
+      "nativeDebugging": false
+    },
+    "Profile 1": {
+      "commandName": "Executable",
+      "executablePath": "D:\\Program Files\\Godot\\Godot_v4.6-stable_mono_win64\\Godot_v4.6-stable_mono_win64\\Godot_v4.6-stable_mono_win64_console.exe",
+      "commandLineArgs": "--path .",
+      "workingDirectory": "D:/DAssets/Source/Games/Godot/MobileAppClassProject/TODO-Buddy/",
+      "nativeDebugging": true
+    },
+    "Profile 2": {
+      "commandName": "Executable",
+      "executablePath": "D:\\DAssets\\Source\\Games\\Godot\\MobileAppClassProject\\TODO-Buddy\\todo-buddy\\Exports\\Windows\\TODOBuddy.exe",
+      "nativeDebugging": true
+    }
+  }
+}
