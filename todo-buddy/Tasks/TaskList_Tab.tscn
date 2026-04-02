@@ -73,9 +73,10 @@ theme_override_font_sizes/font_size = 70
 theme_override_styles/normal = SubResource("StyleBoxFlat_8jh38")
 text = "+"
 
-[node name="CreateTask_Panel" parent="." unique_id=1793479152 instance=ExtResource("4_fb1n6")]
+[node name="CreateTask_Panel" parent="." unique_id=1793479152 node_paths=PackedStringArray("TaskDisplayList") instance=ExtResource("4_fb1n6")]
 layout_mode = 1
 offset_top = 1664.64
+TaskDisplayList = NodePath("../VBoxContainer/TaskDisplayList")
 
 [connection signal="item_selected" from="VBoxContainer/Button2" to="." method="OnFilterChanged"]
 [connection signal="pressed" from="CreateNewTask_Button" to="." method="OnCreateButtonPressed"]

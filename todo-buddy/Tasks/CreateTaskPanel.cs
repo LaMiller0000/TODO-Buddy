@@ -21,13 +21,16 @@ public partial class CreateTaskPanel : Control
 	[Export] public OptionButton MonthInput;
 	[Export] public OptionButton DayInput;
 	[Export] public OptionButton YearInput;
+	[Export] public Button CancelButton;
+	[Export] public Button SaveButton;
+	[Export] public TaskDisplayList TaskDisplayList;
 
 	[ExportGroup("Snap Points")]
 	// ***** Snap points ***** //
 	// after resizing, the panel will go to the closest snap pos
 	// measured as the ratio of the parent control's size
 	[Export] public float ClosedPanelSizeRatio = 0.0f;
-	[Export] public float HalfOpenPanelSizeRatio = 0.45f;
+	[Export] public float HalfOpenPanelSizeRatio = 0.35f;
 	[Export] public float FullOpenPanelSizeRatio = 0.95f;
 	
 	
@@ -129,15 +132,49 @@ public partial class CreateTaskPanel : Control
 		OnParentResize();
 
 		SetupDateInput();
+
+		CancelButton.Pressed += CancelButton_Pressed;
+		SaveButton.Pressed += SaveButton_Pressed;
+	}
+
+	private void CancelButton_Pressed()
+	{
+		ClosePanel();
+		NameInput.Clear();
+		DescriptionInput.Clear();
+		YearInput.Select(0);
+		MonthInput.Select(0);
+		DayInput.Select(0);
+	}
+
+	private void SaveButton_Pressed()
+	{
+		GD.Print($"Adding task: {NameInput.Text}");
+		TaskListElement taskListElement = TaskDisplayList._TaskDisplay.Instantiate<TaskListElement>();
+		var task = new Task
+		{
+			Name = NameInput.Text,
+			Description = DescriptionInput.Text,
+			DueDate = new DateTime(int.Parse(YearInput.Text), int.Parse(MonthInput.Text), int.Parse(DayInput.Text)),
+			CreationDate = DateTime.Now,
+			Progress = TaskProgress.Todo,
+		};
+		taskListElement.Task = task;
+		taskListElement.Refresh();
+		TaskDisplayList.TaskListContainer.AddChild(taskListElement);
+		ClosePanel();
+		NameInput.Clear();
+		DescriptionInput.Clear();
+		YearInput.Select(0);
+		MonthInput.Select(0);
+		DayInput.Select(0);
 	}
 
 	private void SetupDateInput()
 	{
-		string[] months = DateTimeFormatInfo.CurrentInfo.MonthNames;
-
 		for (int i = 0; i < 12; i++)
 		{
-			MonthInput.AddItem(months[i], i + 1);
+			MonthInput.AddItem((i + 1).ToString(), i + 1);
 		}
 
 		for (int i = 0; i < 31; i++)
@@ -149,6 +186,10 @@ public partial class CreateTaskPanel : Control
 		{
 			YearInput.AddItem((i + 1).ToString(), i + 1);
 		}
+
+		MonthInput.GetPopup().AddThemeFontSizeOverride("font_size", 25);
+		DayInput.GetPopup().AddThemeFontSizeOverride("font_size", 25);
+		YearInput.GetPopup().AddThemeFontSizeOverride("font_size", 25);
 	}
 
 	public override void _Process(double delta) // runs every tick, its the main loop for general every frame processes
@@ -176,6 +217,10 @@ public partial class CreateTaskPanel : Control
 				Vector2 sizeDelta_Px = new Vector2(this.Size.X, sizeDelta_Ratio * _Ratio2Pixel_sizeY);
 				this.Size = sizeDelta_Px;
 				this.Position = _parentSize_Px - sizeDelta_Px;
+			}
+			else if (_targetPanelSize_Ratio <= ClosedPanelSizeRatio)
+			{
+				this.Visible = false;
 			}
 		}
 	}
