@@ -123,4 +123,5 @@ mouse_filter = 1
 flat = true
 
 [connection signal="resized" from="." to="." method="OnResize"]
-[connection signal="pressed" from="Expand_Button" to="." method="OnExpandButtonPressed"]
+[connection signal="button_down" from="Expand_Button" to="." method="OnExpandButtonDown"]
+[connection signal="button_up" from="Expand_Button" to="." method="OnExpandButtonUp"]

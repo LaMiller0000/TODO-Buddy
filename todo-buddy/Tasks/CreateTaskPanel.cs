@@ -10,20 +10,28 @@ public partial class CreateTaskPanel : Control
 	[Export] public bool EnableSnapping = true;
 
 	// how far the panel will move in one second
-	[Export] public float SnapHomeingSpeed = 2.0f;
+	[Export] public float SnapHomeingSpeed = 6.0f;
 
 	// allows flicking to move the pannel
 	// this is used when finding the closest snaping point
-	[Export] public float FlickPower = 2;
+	[Export] public float FlickPower = 0;
 	
+	[Export] public TaskDisplayList TaskDisplayList;
 	[Export] public LineEdit NameInput;
 	[Export] public TextEdit DescriptionInput;
-	[Export] public OptionButton MonthInput;
-	[Export] public OptionButton DayInput;
-	[Export] public OptionButton YearInput;
-	[Export] public Button CancelButton;
+
+	[Export] public SpinBox Due_MonthInput;
+	[Export] public SpinBox Due_DayInput;
+	[Export] public SpinBox Due_YearInput;
+
+    [Export] public SpinBox Start_MonthInput;
+    [Export] public SpinBox Start_DayInput;
+    [Export] public SpinBox Start_YearInput;
+
+    [Export] public OptionButton ProgressInput;
+
+    [Export] public Button CancelButton;
 	[Export] public Button SaveButton;
-	[Export] public TaskDisplayList TaskDisplayList;
 
 	[ExportGroup("Snap Points")]
 	// ***** Snap points ***** //
@@ -131,21 +139,35 @@ public partial class CreateTaskPanel : Control
 
 		OnParentResize();
 
-		SetupDateInput();
+		ResetValues();
 
-		CancelButton.Pressed += CancelButton_Pressed;
+        CancelButton.Pressed += CancelButton_Pressed;
 		SaveButton.Pressed += SaveButton_Pressed;
 	}
 
 	private void CancelButton_Pressed()
 	{
-		ClosePanel();
-		NameInput.Clear();
-		DescriptionInput.Clear();
-		YearInput.Select(0);
-		MonthInput.Select(0);
-		DayInput.Select(0);
-	}
+		ResetValues();
+    }
+
+	private void ResetValues()
+	{
+        ClosePanel();
+        NameInput.Clear();
+        DescriptionInput.Clear();
+
+        DateOnly now = DateOnly.FromDateTime(DateTime.Now);
+
+        Start_DayInput.Value = (now.Day);
+        Start_MonthInput.Value = (now.Month);
+        Start_YearInput.Value = (now.Year);
+
+        DateOnly due = DateOnly.FromDateTime(DateTime.Now.AddMonths(1));
+
+        Due_YearInput.Value = (due.Year);
+        Due_MonthInput.Value = (due.Month);
+        Due_DayInput.Value = (due.Day);
+    }
 
 	private void SaveButton_Pressed()
 	{
@@ -155,42 +177,16 @@ public partial class CreateTaskPanel : Control
 		{
 			Name = NameInput.Text,
 			Description = DescriptionInput.Text,
-			DueDate = new DateTime(int.Parse(YearInput.Text), int.Parse(MonthInput.Text), int.Parse(DayInput.Text)),
-			CreationDate = DateTime.Now,
+			DueDate = new DateTime((int)Due_YearInput.Value, (int)Due_MonthInput.Value, (int)Due_DayInput.Value),
+            CreationDate = new DateTime((int)Start_YearInput.Value, (int)Start_MonthInput.Value, (int)Start_DayInput.Value),
 			Progress = TaskProgress.Todo,
 		};
 		taskListElement.Task = task;
 		taskListElement.Refresh();
 		TaskDisplayList.TaskListContainer.AddChild(taskListElement);
-		ClosePanel();
-		NameInput.Clear();
-		DescriptionInput.Clear();
-		YearInput.Select(0);
-		MonthInput.Select(0);
-		DayInput.Select(0);
-	}
 
-	private void SetupDateInput()
-	{
-		for (int i = 0; i < 12; i++)
-		{
-			MonthInput.AddItem((i + 1).ToString(), i + 1);
-		}
-
-		for (int i = 0; i < 31; i++)
-		{
-			DayInput.AddItem((i + 1).ToString(), i + 1);
-		}
-		
-		for (int i = 2026; i < 2040; i++)
-		{
-			YearInput.AddItem((i + 1).ToString(), i + 1);
-		}
-
-		MonthInput.GetPopup().AddThemeFontSizeOverride("font_size", 25);
-		DayInput.GetPopup().AddThemeFontSizeOverride("font_size", 25);
-		YearInput.GetPopup().AddThemeFontSizeOverride("font_size", 25);
-	}
+        ResetValues();
+    }
 
 	public override void _Process(double delta) // runs every tick, its the main loop for general every frame processes
 	{
