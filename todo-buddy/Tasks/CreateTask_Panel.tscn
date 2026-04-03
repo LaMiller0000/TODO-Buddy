@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://no4tvuky6gl"]
 
 [ext_resource type="Script" uid="uid://c26osl54t3bb5" path="res://Tasks/CreateTaskPanel.cs" id="1_qbgrk"]
+[ext_resource type="Theme" uid="uid://cmik283f3baup" path="res://TitleTextboxTheme.tres" id="2_16xr8"]
+[ext_resource type="Theme" uid="uid://l514ter5sqem" path="res://DescriptionTextboxTheme.tres" id="3_tl3lw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kuydc"]
 content_margin_left = 0.0
@@ -14,6 +16,22 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tl3lw"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tl3lw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jb4bi"]
+
 [node name="CreateTask_Panel" type="Control" unique_id=1793479152 node_paths=PackedStringArray("NameInput", "DescriptionInput", "MonthInput", "DayInput", "YearInput", "CancelButton", "SaveButton")]
 layout_mode = 3
 anchor_top = 0.008
@@ -24,14 +42,15 @@ offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qbgrk")
+SnapHomeingSpeed = 16.0
 FlickPower = 0.0
-NameInput = NodePath("Panel/ScrollContainer/VBoxContainer/NameInput")
-DescriptionInput = NodePath("Panel/ScrollContainer/VBoxContainer/DescriptionInput")
-MonthInput = NodePath("Panel/ScrollContainer/VBoxContainer/DateInput/MonthInput")
-DayInput = NodePath("Panel/ScrollContainer/VBoxContainer/DateInput/DayInput")
-YearInput = NodePath("Panel/ScrollContainer/VBoxContainer/DateInput/YearInput")
-CancelButton = NodePath("Panel/ScrollContainer/VBoxContainer/PanelGrabberButton/CancelButton")
-SaveButton = NodePath("Panel/ScrollContainer/VBoxContainer/PanelGrabberButton/SaveButton")
+NameInput = NodePath("Panel/VBoxContainer/ScrollContainer/VBoxContainer/NameInput")
+DescriptionInput = NodePath("Panel/VBoxContainer/ScrollContainer/VBoxContainer/DescriptionInput")
+MonthInput = NodePath("Panel/VBoxContainer/ScrollContainer/VBoxContainer/DateInput/MonthInput")
+DayInput = NodePath("Panel/VBoxContainer/ScrollContainer/VBoxContainer/DateInput/DayInput")
+YearInput = NodePath("Panel/VBoxContainer/ScrollContainer/VBoxContainer/DateInput/YearInput")
+CancelButton = NodePath("Panel/VBoxContainer/PanelGrabberButton/CancelButton")
+SaveButton = NodePath("Panel/VBoxContainer/PanelGrabberButton/SaveButton")
 
 [node name="Panel" type="Panel" parent="." unique_id=665995524]
 layout_mode = 1
@@ -42,7 +61,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_kuydc")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=2122865145]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1130339957]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -50,71 +69,89 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer" unique_id=465776482]
+[node name="PanelGrabberButton" type="Button" parent="Panel/VBoxContainer" unique_id=486230534]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_tl3lw")
+
+[node name="CancelButton" type="Button" parent="Panel/VBoxContainer/PanelGrabberButton" unique_id=1769354365]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.014
+anchor_top = 0.23900001
+anchor_right = 0.07
+anchor_bottom = 0.81000006
+offset_left = -0.12000084
+offset_top = -1.925003
+offset_right = 0.40000153
+theme_override_font_sizes/font_size = 32
+text = "X"
+
+[node name="SaveButton" type="Button" parent="Panel/VBoxContainer/PanelGrabberButton" unique_id=1193818711]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.86200005
+anchor_top = 0.2
+anchor_right = 0.98300004
+anchor_bottom = 0.79700005
+offset_left = 0.039978027
+offset_right = 5.3599854
+theme_override_font_sizes/font_size = 32
+text = "Save"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/VBoxContainer" unique_id=2122865145]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer" unique_id=465776482]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="PanelGrabberButton" type="Button" parent="Panel/ScrollContainer/VBoxContainer" unique_id=486230534]
-custom_minimum_size = Vector2(0, 50)
+[node name="NameInput" type="LineEdit" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1745759936]
 layout_mode = 2
-
-[node name="CancelButton" type="Button" parent="Panel/ScrollContainer/VBoxContainer/PanelGrabberButton" unique_id=1769354365]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.019000001
-anchor_top = 0.23900001
-anchor_right = 0.051000003
-anchor_bottom = 0.80600005
-offset_left = -5.5200005
-offset_top = -1.925003
-offset_right = -2.0800018
-offset_bottom = -1.9140015
-text = "X"
-
-[node name="SaveButton" type="Button" parent="Panel/ScrollContainer/VBoxContainer/PanelGrabberButton" unique_id=1193818711]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.91400003
-anchor_top = 0.2
-anchor_right = 0.98300004
-anchor_bottom = 0.77400005
-offset_left = -0.12005615
-offset_right = 3.3599854
-offset_bottom = 2.2999992
-text = "Save"
-
-[node name="NameInput" type="LineEdit" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1745759936]
-layout_mode = 2
-theme_override_font_sizes/font_size = 45
+mouse_filter = 1
+theme = ExtResource("2_16xr8")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tl3lw")
 placeholder_text = "Add title"
 
-[node name="DescriptionInput" type="TextEdit" parent="Panel/ScrollContainer/VBoxContainer" unique_id=2097104284]
+[node name="DescriptionInput" type="TextEdit" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=2097104284]
 custom_minimum_size = Vector2(2.47, 300)
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
+mouse_filter = 1
+theme = ExtResource("3_tl3lw")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jb4bi")
 placeholder_text = "Description"
 
-[node name="DateLabel" type="Label" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1289286986]
+[node name="DateLabel" type="Label" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1289286986]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.71004736, 0.71004736, 0.71004736, 1)
 theme_override_font_sizes/font_size = 25
 text = "Due Date"
 
-[node name="DateInput" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=965437294]
+[node name="DateInput" type="HBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=965437294]
 layout_mode = 2
 
-[node name="MonthInput" type="OptionButton" parent="Panel/ScrollContainer/VBoxContainer/DateInput" unique_id=859862805]
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-
-[node name="DayInput" type="OptionButton" parent="Panel/ScrollContainer/VBoxContainer/DateInput" unique_id=1703351257]
+[node name="MonthInput" type="OptionButton" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/DateInput" unique_id=859862805]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 
-[node name="YearInput" type="OptionButton" parent="Panel/ScrollContainer/VBoxContainer/DateInput" unique_id=1015898985]
+[node name="DayInput" type="OptionButton" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/DateInput" unique_id=1703351257]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 
-[connection signal="button_down" from="Panel/ScrollContainer/VBoxContainer/PanelGrabberButton" to="." method="OnSlideResize_start"]
-[connection signal="button_up" from="Panel/ScrollContainer/VBoxContainer/PanelGrabberButton" to="." method="OnSlideResize_stop"]
+[node name="YearInput" type="OptionButton" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/DateInput" unique_id=1015898985]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+
+[node name="Panel_ScrollContainer#VBoxContainer" type="VBoxContainer" parent="." unique_id=427180207]
+layout_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel_ScrollContainer_VBoxContainer#PanelGrabberButton" type="Button" parent="." unique_id=1346641333]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 0
+
+[connection signal="button_down" from="Panel/VBoxContainer/PanelGrabberButton" to="." method="OnSlideResize_start"]
+[connection signal="button_up" from="Panel/VBoxContainer/PanelGrabberButton" to="." method="OnSlideResize_stop"]
