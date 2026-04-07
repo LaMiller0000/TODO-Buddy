@@ -16,12 +16,12 @@ public partial class MainScene : Control
     {
 		Instance = this;
 
-
-        //Project.Tasks = TaskHelper.DebugTasks;
-        //Project.SaveToFile();
-
         Project = Project.LoadFromFile();
-        TaskHelper.DebugTasks = Project.Tasks;
+    }
+
+    public override void _ExitTree()
+    {
+        Project.SaveToFile();
     }
 
 

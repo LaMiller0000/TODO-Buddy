@@ -23,6 +23,9 @@ public class Project
     // TODO: add this when User is implemented
     //public List<User> Users { get; set; } = new List<User>();
 
+    [JsonIgnore]
+    public Action TaskListUpdated;
+
     public Project() { }
 
     #region Save Load Stuff
@@ -34,6 +37,20 @@ public class Project
         using FileAccess file = FileAccess.Open(path, FileAccess.ModeFlags.Write);
 
         return file.StoreString(content);
+    }
+    public bool LoadTasksFromFile(string path = "user://save.json")
+    {
+        using var file = FileAccess.Open("user://save.json", FileAccess.ModeFlags.Read);
+
+        string content = file.GetAsText();
+
+        var project = JsonConvert.DeserializeObject<Project>(content);
+
+        Tasks = project.Tasks;
+
+        TaskListUpdated.Invoke();
+
+        return true;
     }
     public static Project LoadFromFile(string path = "user://save.json")
     {

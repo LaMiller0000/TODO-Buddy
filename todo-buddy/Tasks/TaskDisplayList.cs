@@ -15,13 +15,16 @@ public partial class TaskDisplayList : ScrollContainer
 
     public override void _Ready()
     {
-        ClearList();
+        
         Refresh();
+
+        MainScene.Instance.Project.TaskListUpdated += Refresh;
     }
     public void Refresh()
     {
-        GD.Print($"Task Length: {TaskHelper.DebugTasks.Count}");
-        foreach (Task task in TaskHelper.DebugTasks)
+        ClearList();
+        GD.Print($"Task Length: {MainScene.Instance.Project.Tasks.Count}");
+        foreach (Task task in MainScene.Instance.Project.Tasks)
         {
             GD.Print($"Adding task: {task.Name}");
             TaskListElement taskListElement = _TaskDisplay.Instantiate<TaskListElement>();
