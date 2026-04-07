@@ -84,19 +84,6 @@ internal class TaskHelper
 
     #endregion
 
-    #region Save Load Stuff
-
-    public static bool SaveTasksToFile(List<Task> taskList, string path = "user://save.json")
-    {
-        throw new NotImplementedException();
-    }
-    public static List<Task> LoadTaskFromFile(string path = "user://save.json")
-    {
-        throw new NotImplementedException();
-    }
-
-    #endregion
-
     #region Date and Time Stuff
     // helpers for converting dates to strings
     // small shortens the month name, large uses the full month name 

@@ -1,4 +1,5 @@
 using Godot;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-[Tool]
+//[Tool]
 public class Task
 {
     /// <summary>Holds the name of the task.</summary>
@@ -23,12 +24,16 @@ public class Task
 
     /// <summary>Gets an immutable list of tasks this task depends on. null if no dependancys. Inverse of <seealso cref="Subtasks"/>.</summary>
     /// <remarks>Use <seealso cref="AddDependancy(Task)"/> and <see cref="RemoveDependancy(Task)"/> to edit list. </remarks>
-    public ImmutableList<Task>? Dependancies { 
+    [JsonIgnore]
+    public ImmutableList<Task>? Dependancies
+    {
         get => _dependancies.ToImmutableList();
     }
     /// <summary>Gets an immutable list of the tasks that depend on this task. null if no subtasks. Inverse of <seealso cref="Dependancies"/>.</summary>
     /// <remarks>Use <see cref="AddSubtask(Task)"/> and <see cref="RemoveSubtask(Task)"/> to edit list.</remarks>
-    public ImmutableList<Task>? Subtasks { 
+    [JsonIgnore]
+    public ImmutableList<Task>? Subtasks
+    {
         get => _subtasks.ToImmutableList();
     }
 
@@ -53,7 +58,7 @@ public class Task
         if (!_dependancies.Contains(task)) _dependancies.Add(task);
 
         // ensure bidirectional link
-        if (!task.Subtasks.Contains(this)) task.AddSubtask(this);
+        if (!task._subtasks.Contains(this)) task.AddSubtask(this);
 
     }
     /// <summary></summary>
@@ -66,7 +71,7 @@ public class Task
         // remove dependancy
         _dependancies.Remove(task);
         // remove bidirectional link
-        if (task.Subtasks.Contains(this)) task.RemoveSubtask(this);
+        if (task._subtasks.Contains(this)) task.RemoveSubtask(this);
     }
 
     /// <summary></summary>
@@ -81,7 +86,7 @@ public class Task
         if (!_subtasks.Contains(task)) _subtasks.Add(task);
 
         // ensure bidirectional link
-        if (!task.Dependancies.Contains(this)) task.AddDependancy(this);
+        if (!task._dependancies.Contains(this)) task.AddDependancy(this);
     }
     /// <summary></summary>
     /// <remarks></remarks>
@@ -93,7 +98,7 @@ public class Task
         // remove subtask
         _subtasks.Remove(task);
         // remove bidirectional link
-        if (task.Dependancies.Contains(this)) task.RemoveDependancy(this);
+        if (task._dependancies.Contains(this)) task.RemoveDependancy(this);
     }
 
 }

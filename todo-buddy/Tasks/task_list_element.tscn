@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bj4abbe1s2kwr" path="res://Tasks/TaskStatusElement.tscn" id="3_sk2gr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_plq74"]
-font_size = 55
+font_size = 75
 shadow_size = 2
 shadow_color = Color(0, 0, 0, 0.32156864)
 
@@ -22,9 +22,9 @@ clip_children = 2
 clip_contents = true
 custom_minimum_size = Vector2(450, 130)
 offset_left = 2.0
-offset_top = 1.0
-offset_right = 537.0
-offset_bottom = 131.0
+offset_top = 3.0
+offset_right = 612.0
+offset_bottom = 204.0
 size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_styles/panel = ExtResource("1_plq74")
@@ -101,7 +101,7 @@ size_flags_horizontal = 3
 [node name="DueDate_Label" type="Label" parent="MarginContainer/HBoxContainer/Control/VBox_DateStatus" unique_id=1651470267]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Dec 12"
+text = "Dec 12, 2026"
 label_settings = SubResource("LabelSettings_20p34")
 horizontal_alignment = 1
 vertical_alignment = 2

@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using TODOBuddy.Tasks;
 
 public partial class MainScene : Control
 {
@@ -8,13 +9,18 @@ public partial class MainScene : Control
 
 	public Vector2 ViewportResolution { get => GetViewport().GetVisibleRect().Size; }
 
-	/// <remarks> Use the methods in TaskHelper.cs to change this.</remarks>
-	public List<Task> _Tasks = new List<Task>();
+	// contains all the tasks(as well as other stuff
+	public Project Project = new Project();
 
 	public override void _Ready()
 	{
 		Instance = this;
-	}
+
+
+		Project.Tasks = TaskHelper.DebugTasks;
+		Project.SaveToFile();
+
+    }
 
 
 }
