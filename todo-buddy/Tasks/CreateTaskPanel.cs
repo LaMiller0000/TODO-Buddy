@@ -172,7 +172,7 @@ public partial class CreateTaskPanel : Control
 	private void SaveButton_Pressed()
 	{
 		GD.Print($"Adding task: {NameInput.Text}");
-		TaskListElement taskListElement = TaskDisplayList._TaskDisplay.Instantiate<TaskListElement>();
+
 		var task = new Task
 		{
 			Name = NameInput.Text,
@@ -181,9 +181,10 @@ public partial class CreateTaskPanel : Control
             CreationDate = new DateTime((int)Start_YearInput.Value, (int)Start_MonthInput.Value, (int)Start_DayInput.Value),
 			Progress = TaskProgress.Todo,
 		};
-		taskListElement.Task = task;
-		taskListElement.Refresh();
-		TaskDisplayList.TaskListContainer.AddChild(taskListElement);
+
+		// Adds the task to the list of tasks and updates everything subscribed 
+		MainScene.Instance.Project.Tasks.Add(task);
+		MainScene.Instance.Project.TaskListUpdated.Invoke();
 
         ResetValues();
     }
