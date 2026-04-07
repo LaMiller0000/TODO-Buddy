@@ -29,14 +29,24 @@ size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_styles/panel = ExtResource("1_plq74")
 script = ExtResource("2_6kuj3")
-TaskName_Label = NodePath("MarginContainer/HBoxContainer/VBox_TitleAndDescription/TaskName_Label")
-Description_Label = NodePath("MarginContainer/HBoxContainer/VBox_TitleAndDescription/Description_MarginContainer/Description_Label")
-DueDate_Label = NodePath("MarginContainer/HBoxContainer/Control/VBox_DateStatus/DueDate_Label")
+TaskName_Label = NodePath("Expand_Button/MarginContainer/HBoxContainer/VBox_TitleAndDescription/TaskName_Label")
+Description_Label = NodePath("Expand_Button/MarginContainer/HBoxContainer/VBox_TitleAndDescription/Description_MarginContainer/Description_Label")
+DueDate_Label = NodePath("Expand_Button/MarginContainer/HBoxContainer/Control/VBox_DateStatus/DueDate_Label")
 Expand_Button = NodePath("Expand_Button")
-VBox_DateStatus = NodePath("MarginContainer/HBoxContainer/Control/VBox_DateStatus")
-Status_Element = NodePath("MarginContainer/HBoxContainer/Control/VBox_DateStatus/StatusElement")
+VBox_DateStatus = NodePath("Expand_Button/MarginContainer/HBoxContainer/Control/VBox_DateStatus")
+Status_Element = NodePath("Expand_Button/MarginContainer/HBoxContainer/Control/VBox_DateStatus/StatusElement")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=464139663]
+[node name="Expand_Button" type="Button" parent="." unique_id=774974538]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+flat = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Expand_Button" unique_id=464139663]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -48,15 +58,15 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=836408406]
+[node name="HBoxContainer" type="HBoxContainer" parent="Expand_Button/MarginContainer" unique_id=836408406]
 layout_mode = 2
 
-[node name="VBox_TitleAndDescription" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=2068332506]
+[node name="VBox_TitleAndDescription" type="VBoxContainer" parent="Expand_Button/MarginContainer/HBoxContainer" unique_id=2068332506]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.75
 
-[node name="TaskName_Label" type="Label" parent="MarginContainer/HBoxContainer/VBox_TitleAndDescription" unique_id=252832843]
+[node name="TaskName_Label" type="Label" parent="Expand_Button/MarginContainer/HBoxContainer/VBox_TitleAndDescription" unique_id=252832843]
 layout_mode = 2
 size_flags_vertical = 1
 size_flags_stretch_ratio = 3.0
@@ -66,13 +76,13 @@ label_settings = SubResource("LabelSettings_plq74")
 clip_text = true
 text_overrun_behavior = 3
 
-[node name="Description_MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBox_TitleAndDescription" unique_id=596004719]
+[node name="Description_MarginContainer" type="MarginContainer" parent="Expand_Button/MarginContainer/HBoxContainer/VBox_TitleAndDescription" unique_id=596004719]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = -5
 
-[node name="Description_Label" type="Label" parent="MarginContainer/HBoxContainer/VBox_TitleAndDescription/Description_MarginContainer" unique_id=880452728]
+[node name="Description_Label" type="Label" parent="Expand_Button/MarginContainer/HBoxContainer/VBox_TitleAndDescription/Description_MarginContainer" unique_id=880452728]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Description / notes 1    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna mauris, condimentum sit amet sem quis, scelerisque ornare sapien. Integer maximus congue nisl, sed egestas lorem hendrerit at. Donec vehicula ut orci id varius. Sed molestie ut nisi sit amet dictum. Quisque commodo maximus hendrerit."
@@ -81,11 +91,12 @@ autowrap_mode = 3
 clip_text = true
 text_overrun_behavior = 4
 
-[node name="Control" type="Control" parent="MarginContainer/HBoxContainer" unique_id=872738190]
+[node name="Control" type="Control" parent="Expand_Button/MarginContainer/HBoxContainer" unique_id=872738190]
 custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
+mouse_filter = 1
 
-[node name="VBox_DateStatus" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Control" unique_id=1622000471]
+[node name="VBox_DateStatus" type="VBoxContainer" parent="Expand_Button/MarginContainer/HBoxContainer/Control" unique_id=1622000471]
 custom_minimum_size = Vector2(150, 75)
 layout_mode = 1
 anchors_preset = -1
@@ -98,7 +109,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="DueDate_Label" type="Label" parent="MarginContainer/HBoxContainer/Control/VBox_DateStatus" unique_id=1651470267]
+[node name="DueDate_Label" type="Label" parent="Expand_Button/MarginContainer/HBoxContainer/Control/VBox_DateStatus" unique_id=1651470267]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Dec 12, 2026"
@@ -108,19 +119,9 @@ vertical_alignment = 2
 clip_text = true
 text_overrun_behavior = 3
 
-[node name="StatusElement" parent="MarginContainer/HBoxContainer/Control/VBox_DateStatus" unique_id=910742512 instance=ExtResource("3_sk2gr")]
+[node name="StatusElement" parent="Expand_Button/MarginContainer/HBoxContainer/Control/VBox_DateStatus" unique_id=910742512 instance=ExtResource("3_sk2gr")]
 clip_children = 2
 layout_mode = 2
-
-[node name="Expand_Button" type="Button" parent="." unique_id=774974538]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-flat = true
 
 [connection signal="resized" from="." to="." method="OnResize"]
 [connection signal="button_down" from="Expand_Button" to="." method="OnExpandButtonDown"]

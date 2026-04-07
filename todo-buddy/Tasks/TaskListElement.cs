@@ -39,7 +39,8 @@ public partial class TaskListElement : Panel
     {
         TaskName_Label.Text = Task.Name;
         Description_Label.Text = Task.Description;
-        Status_Element.Progress = Task.Progress;
+        Status_Element.Task = Task;
+        Status_Element.UpdateStatus();
 
         TaskName_Label.LabelSettings = (LabelSettings)TaskName_Label.LabelSettings.Duplicate();
 

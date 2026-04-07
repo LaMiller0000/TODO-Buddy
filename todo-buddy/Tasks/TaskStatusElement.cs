@@ -4,33 +4,20 @@ using System;
 [Tool]
 public partial class TaskStatusElement : Control
 {
-    [Export] public TaskProgress Progress 
-    { 
-        get => _progress;
-        set
-        {
-            _progress = value;
-            UpdateStatus();
-        }
+    [Export] public TabContainer _tabContainer; 
+    [Export] public OptionButton _optionButton;
+
+    public Task Task;
+
+    public void UpdateStatus()
+    {
+        _optionButton.Select((int)Task.Progress);
+        _tabContainer.CurrentTab = (int)Task.Progress;
     }
 
-    //private TabContainer _tabContainer = GetChild<TabContainer>(0);
-
-    private TaskProgress _progress = TaskProgress.Todo;
-
-    private void UpdateStatus()
+    public void OnSelectionChange(int index)
     {
-        switch (Progress)
-        {
-            case TaskProgress.Todo:
-                GetChild<TabContainer>(0).CurrentTab = 0;
-                break;
-            case TaskProgress.InProgress:
-                GetChild<TabContainer>(0).CurrentTab = 1;
-                break;
-            case TaskProgress.Done:
-                GetChild<TabContainer>(0).CurrentTab = 2;
-                break;
-        }
+        Task.Progress = (TaskProgress)index;
+        UpdateStatus();
     }
 }

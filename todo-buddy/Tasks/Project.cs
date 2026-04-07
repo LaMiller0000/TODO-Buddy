@@ -30,6 +30,8 @@ public class Project
 
     #region Save Load Stuff
 
+    // The user:// folder, on windows, is located here:
+    // %appdata%\..\Roaming\Godot\app_userdata\TODOBuddy
     public bool SaveToFile(string path = "user://save.json")
     {
         string content = JsonConvert.SerializeObject(this, Formatting.Indented);
