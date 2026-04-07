@@ -24,7 +24,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_rf2cd")
 
+[node name="TaskList_Tab" parent="Container" unique_id=279327588 instance=ExtResource("2_uxrcv")]
+layout_mode = 2
+
 [node name="Test Tab2" type="ColorRect" parent="Container" unique_id=1317666345]
+visible = false
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -73,10 +77,6 @@ text = "Load List of Tasks from file"
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Save List of Tasks To File"
-
-[node name="TaskList_Tab" parent="Container" unique_id=279327588 instance=ExtResource("2_uxrcv")]
-visible = false
-layout_mode = 2
 
 [node name="Test Tab" type="ColorRect" parent="Container" unique_id=848963998]
 visible = false
