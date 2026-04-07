@@ -18,13 +18,17 @@ public partial class TaskDisplayList : ScrollContainer
         
         Refresh();
 
-        MainScene.Instance.Project.TaskListUpdated += Refresh;
+        if (!Engine.IsEditorHint()) MainScene.Instance.Project.TaskListUpdated += Refresh;
     }
     public void Refresh()
     {
+        List<Task> taskList;
+        if (Engine.IsEditorHint()) taskList = TaskHelper.DebugTasks;
+        else taskList = MainScene.Instance.Project.Tasks;
+
         ClearList();
-        GD.Print($"Task Length: {MainScene.Instance.Project.Tasks.Count}");
-        foreach (Task task in MainScene.Instance.Project.Tasks)
+        GD.Print($"Task Length: {taskList.Count}");
+        foreach (Task task in taskList)
         {
             GD.Print($"Adding task: {task.Name}");
             TaskListElement taskListElement = _TaskDisplay.Instantiate<TaskListElement>();
