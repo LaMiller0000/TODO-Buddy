@@ -37,7 +37,13 @@ public class Project
     }
     public static Project LoadFromFile(string path = "user://save.json")
     {
-        throw new NotImplementedException();
+        using var file = FileAccess.Open("user://save.json", FileAccess.ModeFlags.Read);
+
+        string content = file.GetAsText();
+
+        var project = JsonConvert.DeserializeObject<Project>(content);
+
+        return project;
     }
 
     #endregion
