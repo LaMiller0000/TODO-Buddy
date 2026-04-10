@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bm4l65g04j51k" path="res://MainScene.cs" id="1_uxrcv"]
 [ext_resource type="Script" uid="uid://cb6aapol0815g" path="res://MainTabContainer.cs" id="2_rf2cd"]
 [ext_resource type="PackedScene" uid="uid://rqpcgsefl7yu" path="res://Tasks/TaskList_Tab.tscn" id="2_uxrcv"]
+[ext_resource type="Script" uid="uid://djpc7vn0lfbmm" path="res://DebugScreen.cs" id="3_rf2cd"]
 [ext_resource type="Script" uid="uid://cthn6lre3l370" path="res://ButtonTest.cs" id="3_rpqi1"]
 
 [node name="MainSceneRoot" type="Control" unique_id=1479291969]
@@ -25,6 +26,57 @@ script = ExtResource("2_rf2cd")
 
 [node name="TaskList_Tab" parent="Container" unique_id=279327588 instance=ExtResource("2_uxrcv")]
 layout_mode = 2
+
+[node name="Test Tab2" type="ColorRect" parent="Container" unique_id=1317666345]
+visible = false
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.5726816, 0, 0.2026417, 1)
+script = ExtResource("3_rf2cd")
+
+[node name="Label" type="Label" parent="Container/Test Tab2" unique_id=1941774086]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.105000004
+offset_bottom = -0.6000061
+theme_override_font_sizes/font_size = 100
+text = "Debug Screen"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/Test Tab2" unique_id=993710158]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.105000004
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.6000061
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Container/Test Tab2/VBoxContainer" unique_id=348341252]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Reset List of Tasks to Debug Tasks"
+
+[node name="Button2" type="Button" parent="Container/Test Tab2/VBoxContainer" unique_id=200125586]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Clear List of Tasks"
+
+[node name="Button3" type="Button" parent="Container/Test Tab2/VBoxContainer" unique_id=1002915887]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Load List of Tasks from file"
+
+[node name="Button4" type="Button" parent="Container/Test Tab2/VBoxContainer" unique_id=1160798111]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Save List of Tasks To File"
 
 [node name="Test Tab" type="ColorRect" parent="Container" unique_id=848963998]
 visible = false
@@ -84,52 +136,13 @@ text = "no idea why I did this for the test tab"
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="Test Tab2" type="ColorRect" parent="Container" unique_id=1317666345]
-visible = false
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-color = Color(0.5726816, 0, 0.2026417, 1)
-
-[node name="Label" type="Label" parent="Container/Test Tab2" unique_id=1941774086]
-layout_mode = 0
-offset_left = 530.0
-offset_top = 275.0
-offset_right = 870.0
-offset_bottom = 504.0
-theme_override_font_sizes/font_size = 100
-text = "rED"
-
-[node name="Button" type="Button" parent="Container/Test Tab2" unique_id=348341252]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.305
-anchor_top = 0.393
-anchor_right = 0.305
-anchor_bottom = 0.393
-offset_left = -225.4
-offset_top = -86.56
-offset_right = 224.6
-offset_bottom = 87.44
-grow_horizontal = 2
-grow_vertical = 0
-text = "This is a button"
-script = ExtResource("3_rpqi1")
-
-[node name="DevNote" type="Label" parent="." unique_id=107510]
-layout_mode = 0
-offset_left = -1.0
-offset_top = -239.0
-offset_right = 490.0
-offset_bottom = -57.0
-text = "TODO: I think we should add custom buttons to switch tabs, also I think if we could implement swiping left or right to switch tabs that would also be good
-
-At the very least the tabs need to be way larger and not as close to the top of the screen"
-autowrap_mode = 3
-
 [node name="TabContainer" type="TabContainer" parent="." unique_id=872617047]
 visible = false
 layout_mode = 0
 offset_right = 1080.0
 offset_bottom = 1920.0
+
+[connection signal="pressed" from="Container/Test Tab2/VBoxContainer/Button" to="Container/Test Tab2" method="OnResetButtonPressed"]
+[connection signal="pressed" from="Container/Test Tab2/VBoxContainer/Button2" to="Container/Test Tab2" method="OnClearButtonPressed"]
+[connection signal="pressed" from="Container/Test Tab2/VBoxContainer/Button3" to="Container/Test Tab2" method="OnLoadButtonPressed"]
+[connection signal="pressed" from="Container/Test Tab2/VBoxContainer/Button4" to="Container/Test Tab2" method="OnSaveButtonPressed"]

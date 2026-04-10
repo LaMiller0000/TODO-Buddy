@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 [Tool]
 public partial class TaskDisplayList : ScrollContainer
@@ -9,19 +10,37 @@ public partial class TaskDisplayList : ScrollContainer
     [ExportToolButton("Refresh List")] public Callable RefreshButton => new Callable(this, nameof(Refresh));
     [ExportToolButton("Clear List")] public Callable ClearButton => new Callable(this, nameof(ClearList));
 
-    [Export]
-    public PackedScene _TaskDisplay;
+    [Export] public PackedScene _TaskDisplay;
 
+    [Export] public SortOptions SortOption = SortOptions.DueDate;
+
+    public enum SortOptions
+    {
+        DueDate = 0,
+        Priority = 1,
+        CreationDate = 2,
+        Alphabetiacally = 3,
+    }
 
     public override void _Ready()
     {
-        ClearList();
+        
         Refresh();
+
+        if (!Engine.IsEditorHint()) MainScene.Instance.Project.TaskListUpdated += Refresh;
     }
     public void Refresh()
     {
-        GD.Print($"Task Length: {TaskHelper.DebugTasks.Count}");
-        foreach (Task task in TaskHelper.DebugTasks)
+        List<Task> taskList;
+        if (Engine.IsEditorHint()) taskList = TaskHelper.DebugTasks;
+        else taskList = MainScene.Instance.Project.Tasks;
+
+        ClearList();
+        GD.Print($"Task Length: {taskList.Count}");
+
+        taskList = sortTaskList(taskList, SortOption);
+
+        foreach (Task task in taskList)
         {
             GD.Print($"Adding task: {task.Name}");
             TaskListElement taskListElement = _TaskDisplay.Instantiate<TaskListElement>();
@@ -30,6 +49,42 @@ public partial class TaskDisplayList : ScrollContainer
             TaskListContainer.AddChild(taskListElement);
         }
     }
+
+    private List<Task> sortTaskList(List<Task> tasks, SortOptions sortOption)
+    {
+        List<Task> sortedTasks; // = new List<Task>();
+
+        switch (sortOption)
+        {
+            default: //case SortOptions.DueDate:
+                sortedTasks = tasks
+                    .OrderBy(x => x.DueDate)
+                    .ThenBy(x => x.Name)
+                    .ToList();
+                break;
+            case SortOptions.Priority:
+                sortedTasks = tasks
+                    .OrderBy(x => x.Progress)
+                    .ThenBy(x => x.DueDate)
+                    .ThenBy(x => x.Name)
+                    .ToList();
+                break;
+            case SortOptions.Alphabetiacally:
+                sortedTasks = tasks
+                    .OrderBy(x => x.Name)
+                    .ToList();
+                break;
+            case SortOptions.CreationDate:
+                sortedTasks = tasks
+                    .OrderBy(x => x.CreationDate)
+                    .ThenBy(x => x.Name)
+                    .ToList();
+                break;
+        }
+
+        return sortedTasks;
+    }
+
     public void ClearList()
     {
         foreach (var child in TaskListContainer.GetChildren())

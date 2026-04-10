@@ -101,7 +101,7 @@ Final Technical Report | 04.25.26 | Objective: As a group, finalize your 15 page
             - TestDialogRoot  DialogRoot
             - TestDialog  DialogPlayer
             
-### Gary - Developer
+### Gary - Developer, UI Lead
     Report 1:
         - Created outline of application
         - Drafted health logi (i.e. task completion being tied to buddy's health)

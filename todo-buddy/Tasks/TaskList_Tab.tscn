@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://rqpcgsefl7yu"]
 
-[ext_resource type="PackedScene" uid="uid://ttqgcf2eq6f1" path="res://Tasks/TaskDisplayList.tscn" id="1_8jh38"]
 [ext_resource type="Script" uid="uid://w0eilusxkxm4" path="res://Tasks/TaskListTab.cs" id="1_tuqwp"]
+[ext_resource type="Script" uid="uid://beed75tdshxg2" path="res://Tasks/TaskDisplayList.cs" id="2_fb1n6"]
 [ext_resource type="PackedScene" uid="uid://b4bb5s1plvbx7" path="res://Tasks/task_list_element.tscn" id="2_tuqwp"]
 [ext_resource type="PackedScene" uid="uid://no4tvuky6gl" path="res://Tasks/CreateTask_Panel.tscn" id="4_fb1n6"]
 
@@ -17,7 +17,7 @@ corner_radius_bottom_right = 300
 corner_radius_bottom_left = 300
 corner_detail = 10
 
-[node name="TaskList_Tab" type="Control" unique_id=279327588 node_paths=PackedStringArray("CreateTaskPanel")]
+[node name="TaskList_Tab" type="Control" unique_id=279327588 node_paths=PackedStringArray("CreateTaskPanel", "TaskDisplayList")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,6 +26,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tuqwp")
 CreateTaskPanel = NodePath("CreateTask_Panel")
+TaskDisplayList = NodePath("VBoxContainer/TaskDisplayList")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=296271663]
 layout_mode = 1
@@ -51,10 +52,17 @@ popup/item_2/id = 2
 popup/item_3/text = "Alphabetiacally"
 popup/item_3/id = 3
 
-[node name="TaskDisplayList" parent="VBoxContainer" unique_id=1599380571 instance=ExtResource("1_8jh38")]
+[node name="TaskDisplayList" type="ScrollContainer" parent="VBoxContainer" unique_id=1599380571 node_paths=PackedStringArray("TaskListContainer")]
 layout_mode = 2
 size_flags_vertical = 3
+script = ExtResource("2_fb1n6")
+TaskListContainer = NodePath("VBoxContainer")
 _TaskDisplay = ExtResource("2_tuqwp")
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TaskDisplayList" unique_id=1904537867]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="CreateNewTask_Button" type="Button" parent="." unique_id=70666788]
 layout_mode = 1
@@ -73,50 +81,17 @@ theme_override_font_sizes/font_size = 70
 theme_override_styles/normal = SubResource("StyleBoxFlat_8jh38")
 text = "+"
 
-[node name="CreateTask_Panel" parent="." unique_id=1793479152 instance=ExtResource("4_fb1n6")]
+[node name="CreateTask_Panel" parent="." unique_id=1793479152 node_paths=PackedStringArray("TaskDisplayList") instance=ExtResource("4_fb1n6")]
 layout_mode = 1
 offset_top = 1664.64
-
-[node name="ScrollContainer" type="ScrollContainer" parent="CreateTask_Panel" unique_id=1346535729]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CreateTask_Panel/ScrollContainer" unique_id=909299221]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="CreateTask_Panel/ScrollContainer/VBoxContainer" unique_id=453285582]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-text = "wow"
-
-[node name="Button2" type="Button" parent="CreateTask_Panel/ScrollContainer/VBoxContainer" unique_id=2021001528]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-text = "wow"
-
-[node name="Button3" type="Button" parent="CreateTask_Panel/ScrollContainer/VBoxContainer" unique_id=423246353]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-text = "wow"
-
-[node name="Button4" type="Button" parent="CreateTask_Panel/ScrollContainer/VBoxContainer" unique_id=368122592]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-text = "wow"
-
-[node name="Button5" type="Button" parent="CreateTask_Panel/ScrollContainer/VBoxContainer" unique_id=1058729057]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-text = "wow"
-
-[node name="Button6" type="Button" parent="CreateTask_Panel/ScrollContainer/VBoxContainer" unique_id=1602477850]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-text = "wow"
+TaskDisplayList = NodePath("../VBoxContainer/TaskDisplayList")
 
 [connection signal="item_selected" from="VBoxContainer/Button2" to="." method="OnFilterChanged"]
+[connection signal="resized" from="VBoxContainer/TaskDisplayList/VBoxContainer/TaskListElement" to="VBoxContainer/TaskDisplayList/VBoxContainer/TaskListElement" method="OnResize"]
+[connection signal="resized" from="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@40391" to="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@40391" method="OnResize"]
+[connection signal="resized" from="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@40394" to="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@40394" method="OnResize"]
+[connection signal="resized" from="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@40397" to="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@40397" method="OnResize"]
+[connection signal="resized" from="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@40400" to="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@40400" method="OnResize"]
+[connection signal="resized" from="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@40403" to="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@40403" method="OnResize"]
+[connection signal="resized" from="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@40406" to="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@40406" method="OnResize"]
 [connection signal="pressed" from="CreateNewTask_Button" to="." method="OnCreateButtonPressed"]
