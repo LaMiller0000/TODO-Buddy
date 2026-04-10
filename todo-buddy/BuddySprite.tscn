@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c1mfai0ulc3bw"]
 
 [ext_resource type="Texture2D" uid="uid://b5ad2slxdx877" path="res://assets/sprites/BLUE_HERO/BlueKnightHero/117914a7-114d-4528-8185-4333c34600a0.png" id="1_fvxg7"]
+[ext_resource type="Script" uid="uid://cxjitb72aybk4" path="res://buddy_selector_option_button.gd" id="2_qdqqn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_83l5a"]
 atlas = ExtResource("1_fvxg7")
@@ -86,7 +87,7 @@ sprite_frames = SubResource("SpriteFrames_qdqqn")
 animation = &"evolvedIdle"
 frame_progress = 0.63168675
 
-[node name="OptionButton" type="OptionButton" parent="AnimatedSprite2D" unique_id=553462112]
+[node name="BuddySelectorOptionButton" type="OptionButton" parent="AnimatedSprite2D" unique_id=553462112]
 editor_description = "Buddy Selector
 "
 offset_left = -53.85793
@@ -105,3 +106,6 @@ popup/item_3/text = "Green Slime"
 popup/item_3/id = 3
 popup/item_4/text = "Red Demon"
 popup/item_4/id = 4
+script = ExtResource("2_qdqqn")
+
+[connection signal="item_selected" from="AnimatedSprite2D/BuddySelectorOptionButton" to="AnimatedSprite2D/BuddySelectorOptionButton" method="_on_item_selected"]
