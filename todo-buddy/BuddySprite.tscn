@@ -85,3 +85,23 @@ scale = Vector2(11.4375, 10.875)
 sprite_frames = SubResource("SpriteFrames_qdqqn")
 animation = &"evolvedIdle"
 frame_progress = 0.63168675
+
+[node name="OptionButton" type="OptionButton" parent="AnimatedSprite2D" unique_id=553462112]
+editor_description = "Buddy Selector
+"
+offset_left = -53.85793
+offset_top = 21.885056
+offset_right = 72.142075
+offset_bottom = 52.885056
+selected = 0
+item_count = 5
+popup/item_0/text = "Blue Hero"
+popup/item_0/id = 0
+popup/item_1/text = "Blue Slime"
+popup/item_1/id = 1
+popup/item_2/text = "Gold Slime"
+popup/item_2/id = 2
+popup/item_3/text = "Green Slime"
+popup/item_3/id = 3
+popup/item_4/text = "Red Demon"
+popup/item_4/id = 4

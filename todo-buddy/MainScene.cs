@@ -12,17 +12,17 @@ public partial class MainScene : Control
 	// contains all the tasks(as well as other stuff
 	public Project Project = new Project();
 
-    public override void _EnterTree()
-    {
+	public override void _EnterTree()
+	{
 		Instance = this;
 
-        Project = Project.LoadFromFile();
-    }
+		Project = Project.LoadFromFile();
+	}
 
-    public override void _ExitTree()
-    {
-        Project.SaveToFile();
-    }
+	public override void _ExitTree()
+	{
+		Project.SaveToFile();
+	}
 
 	public override void _Ready()
 	{
