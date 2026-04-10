@@ -60,3 +60,6 @@ android/
 
 # JetBrains IDEs
 .idea/
+/.idea/caches/deviceStreaming.xml
+/.idea/misc.xml
+/todo-buddy/Exports/Windows/TODOBuddy.pck
