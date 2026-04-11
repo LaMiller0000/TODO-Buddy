@@ -18,7 +18,12 @@ public partial class TaskListTab : Control
 
         TaskDisplayList.Refresh();
 	}
-	public void OnCreateButtonPressed()
+	public void OnShowCompletedTasks_Pressed()
+	{
+		throw new NotImplementedException();
+	}
+
+    public void OnCreateButtonPressed()
 	{
 		// pull up for creating new tasks
 		CreateTaskPanel.OpenPanel();

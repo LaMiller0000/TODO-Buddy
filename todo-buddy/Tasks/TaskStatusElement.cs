@@ -19,5 +19,7 @@ public partial class TaskStatusElement : Control
     {
         Task.Progress = (TaskProgress)index;
         UpdateStatus();
+
+        if (!Engine.IsEditorHint()) MainScene.Instance.Project.TaskListUpdated.Invoke();
     }
 }

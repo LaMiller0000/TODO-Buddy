@@ -36,8 +36,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button2" type="OptionButton" parent="VBoxContainer" unique_id=373049851]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=549148313]
 layout_mode = 2
+
+[node name="ShowCompletedTasks" type="CheckBox" parent="VBoxContainer/HBoxContainer" unique_id=677657885]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Show Completed Tasks"
+
+[node name="SortByDropdown" type="OptionButton" parent="VBoxContainer/HBoxContainer" unique_id=373049851]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
 theme_override_font_sizes/font_size = 40
 flat = true
 alignment = 2
@@ -86,12 +96,21 @@ layout_mode = 1
 offset_top = 1664.64
 TaskDisplayList = NodePath("../VBoxContainer/TaskDisplayList")
 
-[connection signal="item_selected" from="VBoxContainer/Button2" to="." method="OnFilterChanged"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ShowCompletedTasks" to="." method="OnShowCompletedTasks_Pressed"]
+[connection signal="item_selected" from="VBoxContainer/HBoxContainer/SortByDropdown" to="." method="OnFilterChanged"]
 [connection signal="resized" from="VBoxContainer/TaskDisplayList/VBoxContainer/TaskListElement" to="VBoxContainer/TaskDisplayList/VBoxContainer/TaskListElement" method="OnResize"]
-[connection signal="resized" from="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@40391" to="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@40391" method="OnResize"]
-[connection signal="resized" from="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@40394" to="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@40394" method="OnResize"]
-[connection signal="resized" from="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@40397" to="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@40397" method="OnResize"]
-[connection signal="resized" from="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@40400" to="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@40400" method="OnResize"]
-[connection signal="resized" from="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@40403" to="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@40403" method="OnResize"]
-[connection signal="resized" from="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@40406" to="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@40406" method="OnResize"]
+[connection signal="resized" from="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@157781" to="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@157781" method="OnResize"]
+[connection signal="resized" from="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@157792" to="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@157792" method="OnResize"]
+[connection signal="resized" from="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@157803" to="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@157803" method="OnResize"]
+[connection signal="resized" from="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@157814" to="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@157814" method="OnResize"]
+[connection signal="resized" from="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@157825" to="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@157825" method="OnResize"]
+[connection signal="resized" from="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@157836" to="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@157836" method="OnResize"]
+[connection signal="resized" from="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@157847" to="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@157847" method="OnResize"]
+[connection signal="resized" from="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@157858" to="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@157858" method="OnResize"]
+[connection signal="resized" from="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@157869" to="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@157869" method="OnResize"]
+[connection signal="resized" from="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@157880" to="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@157880" method="OnResize"]
+[connection signal="resized" from="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@157891" to="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@157891" method="OnResize"]
+[connection signal="resized" from="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@157902" to="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@157902" method="OnResize"]
+[connection signal="resized" from="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@157913" to="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@157913" method="OnResize"]
+[connection signal="resized" from="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@157924" to="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@157924" method="OnResize"]
 [connection signal="pressed" from="CreateNewTask_Button" to="." method="OnCreateButtonPressed"]
