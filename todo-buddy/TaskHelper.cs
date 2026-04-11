@@ -155,6 +155,27 @@ internal class TaskHelper
     #endregion
 
     #region Date and Time Stuff
+    public static byte GetDaysInMonth(byte month)
+    {
+        switch (month)
+        {
+            case 1: return  31; // January
+            case 2: return  28; // February (29 in a leap year (not implemented))
+            case 3: return  31; // March
+            case 4: return  30; // April
+            case 5: return  31; // May
+            case 6: return  30; // June
+            case 7: return  31; // July
+            case 8: return  31; // August
+            case 9: return  30; // September
+            case 10: return 31; // October
+            case 11: return 30; // November
+            case 12: return 31; // December
+
+            default: throw new ArgumentOutOfRangeException($"month:{month} out of range. (range 1-12)");
+        }
+    }
+
     // helpers for converting dates to strings
     // small shortens the month name, large uses the full month name 
     public static string GetDateSmall(DateTime dateTime) => GetDateSmall(DateOnly.FromDateTime(dateTime));

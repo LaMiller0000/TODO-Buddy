@@ -187,7 +187,21 @@ public partial class CreateTaskPanel : Control
 		ResetValues();
 	}
 
-	private void ResetValues()
+	// Updates the day ranges based on what the month is 
+	private void OnDue_MonthInput_Changed(float value)
+	{
+		Due_DayInput.MaxValue = TaskHelper.GetDaysInMonth((byte)Due_MonthInput.Value);
+		GD.Print($"OnDue_MonthInput_Changed({value})");
+    }
+    private void OnStart_MonthInput_Changed(float value)
+    {
+        Start_DayInput.MaxValue = TaskHelper.GetDaysInMonth((byte)Start_MonthInput.Value);
+        GD.Print($"OnStart_MonthInput_Changed({value})");
+
+    }
+
+
+    private void ResetValues()
 	{
         ClosePanel();
         NameInput.Clear();

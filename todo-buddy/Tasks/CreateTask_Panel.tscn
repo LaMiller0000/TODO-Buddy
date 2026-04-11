@@ -193,11 +193,17 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(75, 50)
 layout_mode = 2
 theme = ExtResource("4_jb4bi")
+min_value = 1.0
+max_value = 12.0
+value = 1.0
+rounded = true
 
 [node name="Due_DayInput" type="SpinBox" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/Due_DateInput" unique_id=839752354]
 custom_minimum_size = Vector2(75, 50)
 layout_mode = 2
 theme = ExtResource("4_jb4bi")
+max_value = 31.0
+rounded = true
 
 [node name="Due_YearInput" type="SpinBox" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/Due_DateInput" unique_id=908926149]
 custom_minimum_size = Vector2(100, 50)
@@ -253,3 +259,5 @@ layout_mode = 0
 
 [connection signal="button_down" from="Panel/VBoxContainer/PanelGrabberButton" to="." method="OnSlideResize_start"]
 [connection signal="button_up" from="Panel/VBoxContainer/PanelGrabberButton" to="." method="OnSlideResize_stop"]
+[connection signal="value_changed" from="Panel/VBoxContainer/ScrollContainer/VBoxContainer/Start_DateInput/Start_MonthInput" to="." method="OnStart_MonthInput_Changed"]
+[connection signal="value_changed" from="Panel/VBoxContainer/ScrollContainer/VBoxContainer/Due_DateInput/Due_MonthInput" to="." method="OnDue_MonthInput_Changed"]
