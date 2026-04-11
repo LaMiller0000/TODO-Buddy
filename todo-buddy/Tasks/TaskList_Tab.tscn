@@ -96,7 +96,7 @@ layout_mode = 1
 offset_top = 1664.64
 TaskDisplayList = NodePath("../VBoxContainer/TaskDisplayList")
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/ShowCompletedTasks" to="." method="OnShowCompletedTasks_Pressed"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer/ShowCompletedTasks" to="." method="OnShowCompletedTasks_Toggled"]
 [connection signal="item_selected" from="VBoxContainer/HBoxContainer/SortByDropdown" to="." method="OnFilterChanged"]
 [connection signal="resized" from="VBoxContainer/TaskDisplayList/VBoxContainer/TaskListElement" to="VBoxContainer/TaskDisplayList/VBoxContainer/TaskListElement" method="OnResize"]
 [connection signal="resized" from="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@157781" to="VBoxContainer/TaskDisplayList/VBoxContainer/@Panel@157781" method="OnResize"]

@@ -18,10 +18,11 @@ public partial class TaskListTab : Control
 
         TaskDisplayList.Refresh();
 	}
-	public void OnShowCompletedTasks_Pressed()
+	public void OnShowCompletedTasks_Toggled(bool value)
 	{
-		throw new NotImplementedException();
-	}
+        TaskDisplayList.ShowCompletedTasks = value;
+		TaskDisplayList.Refresh();
+    }
 
     public void OnCreateButtonPressed()
 	{
