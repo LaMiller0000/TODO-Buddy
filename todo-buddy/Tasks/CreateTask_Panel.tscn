@@ -55,7 +55,8 @@ Start_YearInput = NodePath("Panel/VBoxContainer/ScrollContainer/VBoxContainer/St
 ProgressInput = NodePath("Panel/VBoxContainer/ScrollContainer/VBoxContainer/ProgressInput/ProgressInput")
 CancelButton = NodePath("Panel/VBoxContainer/PanelGrabberButton/CancelButton")
 SaveButton = NodePath("Panel/VBoxContainer/PanelGrabberButton/SaveButton")
-DeleteButton = NodePath("Panel/VBoxContainer/PanelGrabberButton/DeleteButton")
+DeleteButton = NodePath("Panel/VBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/DeleteButton")
+HalfOpenPanelSizeRatio = 0.46
 
 [node name="Panel" type="Panel" parent="." unique_id=665995524]
 layout_mode = 1
@@ -104,18 +105,6 @@ offset_right = 5.3599854
 theme_override_font_sizes/font_size = 32
 text = "Save"
 
-[node name="DeleteButton" type="Button" parent="Panel/VBoxContainer/PanelGrabberButton" unique_id=1997098578]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.425
-anchor_top = 0.2
-anchor_right = 0.551
-anchor_bottom = 0.79700005
-offset_right = -0.08001709
-theme_override_font_sizes/font_size = 32
-text = "Delete"
-
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel/VBoxContainer" unique_id=2122865145]
 layout_mode = 2
 size_flags_vertical = 3
@@ -133,12 +122,14 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_tl3lw")
 placeholder_text = "Add title"
 
 [node name="DescriptionInput" type="TextEdit" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=2097104284]
-custom_minimum_size = Vector2(2.47, 300)
+custom_minimum_size = Vector2(2.47, 150)
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("3_tl3lw")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jb4bi")
 placeholder_text = "Description"
+wrap_mode = 1
+scroll_fit_content_height = true
 
 [node name="Start_DateInput" type="HBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=102482409]
 layout_mode = 2
@@ -236,6 +227,20 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=719188367]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="DeleteButton" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/MarginContainer" unique_id=1997098578]
+custom_minimum_size = Vector2(136, 59.7)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 32
+text = "Delete"
 
 [node name="Panel_ScrollContainer#VBoxContainer" type="VBoxContainer" parent="." unique_id=427180207]
 layout_mode = 0
