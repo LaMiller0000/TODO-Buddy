@@ -24,6 +24,9 @@ public partial class TaskListElement : Panel
 
     [Export] public StyleBox Late_Stylebox;
     [Export] public StyleBox Completed_Stylebox;
+    
+    public CreateTaskPanel CreateTaskPanel;
+
 
     // flag to hold if the element is expanded or not
     private bool _expanded = false;
@@ -134,6 +137,6 @@ public partial class TaskListElement : Panel
     /// </summary>
     public void LongPress()
     {
-        throw new NotImplementedException("long press on task, edit menu not implemented yet");
+        CreateTaskPanel.OpenPanelEdit(Task);
     }
 }

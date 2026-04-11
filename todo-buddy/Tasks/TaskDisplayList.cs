@@ -7,6 +7,9 @@ using System.Linq;
 public partial class TaskDisplayList : ScrollContainer
 {
     [Export] public VBoxContainer TaskListContainer;
+    
+    [Export] public Control CreateTaskPanel;
+
     [ExportToolButton("Refresh List")] public Callable RefreshButton => new Callable(this, nameof(Refresh));
     [ExportToolButton("Clear List")] public Callable ClearButton => new Callable(this, nameof(ClearList));
 
@@ -53,6 +56,7 @@ public partial class TaskDisplayList : ScrollContainer
             GD.Print($"Adding task: {task.Name}");
             TaskListElement taskListElement = _TaskDisplay.Instantiate<TaskListElement>();
             taskListElement.Task = task;
+            taskListElement.CreateTaskPanel = (CreateTaskPanel)CreateTaskPanel;
             taskListElement.Refresh();
             TaskListContainer.AddChild(taskListElement);
         }
