@@ -77,6 +77,30 @@ region = Rect2(128, 288, 32, 32)
 atlas = ExtResource("1_op65t")
 region = Rect2(160, 288, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jj1cc"]
+atlas = ExtResource("1_fvxg7")
+region = Rect2(160, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77nkw"]
+atlas = ExtResource("1_fvxg7")
+region = Rect2(128, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgco8"]
+atlas = ExtResource("1_fvxg7")
+region = Rect2(96, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38yp3"]
+atlas = ExtResource("1_fvxg7")
+region = Rect2(64, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oukyd"]
+atlas = ExtResource("1_fvxg7")
+region = Rect2(32, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2umu"]
+atlas = ExtResource("1_fvxg7")
+region = Rect2(0, 256, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_83l5a"]
 atlas = ExtResource("1_fvxg7")
 region = Rect2(0, 0, 32, 32)
@@ -100,6 +124,30 @@ region = Rect2(128, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_fsllw"]
 atlas = ExtResource("1_fvxg7")
 region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlpsu"]
+atlas = ExtResource("1_fvxg7")
+region = Rect2(0, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_np2eh"]
+atlas = ExtResource("1_fvxg7")
+region = Rect2(32, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdt60"]
+atlas = ExtResource("1_fvxg7")
+region = Rect2(64, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxfee"]
+atlas = ExtResource("1_fvxg7")
+region = Rect2(96, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aaorq"]
+atlas = ExtResource("1_fvxg7")
+region = Rect2(128, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjmq7"]
+atlas = ExtResource("1_fvxg7")
+region = Rect2(160, 288, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qdqqn"]
 animations = [{
@@ -127,7 +175,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"defaultDead",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -180,6 +228,35 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_jj1cc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77nkw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgco8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38yp3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oukyd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2umu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2umu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2umu")
+}],
+"loop": true,
+"name": &"evolvedDead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_83l5a")
 }, {
 "duration": 1.0,
@@ -200,6 +277,29 @@ animations = [{
 "loop": true,
 "name": &"evolvedIdle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlpsu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_np2eh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdt60")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxfee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aaorq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjmq7")
+}],
+"loop": true,
+"name": &"evolvedSleep",
+"speed": 5.0
 }]
 
 [node name="Control" type="Control" unique_id=2070054951]
@@ -215,7 +315,7 @@ custom_minimum_size = Vector2(1080, 1920)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-color = Color(0.8666667, 0.89411765, 0.74509805, 1)
+color = Color(0.3808, 0.4655733, 0.68, 1)
 
 [node name="ColorRect" type="ColorRect" parent="ColorRect" unique_id=205405401]
 layout_mode = 0
@@ -223,21 +323,23 @@ offset_left = 90.0
 offset_top = 62.0
 offset_right = 986.0
 offset_bottom = 656.0
+color = Color(0.0282, 0.31537005, 0.47, 1)
 
 [node name="BuddyAnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=1594670097]
 position = Vector2(533.00006, 459.00003)
 scale = Vector2(11.4375, 10.875)
 sprite_frames = SubResource("SpriteFrames_qdqqn")
-animation = &"evolvedIdle"
+animation = &"defaultDead"
+frame_progress = 0.79102427
 script = ExtResource("2_36el2")
 
 [node name="BuddySelectorOptionButton" type="OptionButton" parent="BuddyAnimatedSprite" unique_id=553462112]
 editor_description = "Buddy Selector
 "
-offset_left = -22.819677
-offset_top = 21.977009
-offset_right = 444.06555
-offset_bottom = 131.977
+offset_left = -23.51913
+offset_top = 117.51724
+offset_right = 443.3661
+offset_bottom = 227.51724
 scale = Vector2(0.1, 0.1)
 accessibility_name = "BuddySelectorDropDown"
 theme_override_font_sizes/font_size = 74
@@ -256,5 +358,14 @@ popup/item_3/id = 3
 popup/item_4/text = "Red Demon"
 popup/item_4/id = 4
 script = ExtResource("2_qdqqn")
+
+[node name="BuddyNameLabel" type="Label" parent="BuddyAnimatedSprite" unique_id=1003013484]
+offset_left = -21.945354
+offset_top = 20.965513
+offset_right = 439.05466
+offset_bottom = 122.965515
+scale = Vector2(0.1, 0.1)
+theme_override_font_sizes/font_size = 74
+text = "Buddy Name"
 
 [connection signal="item_selected" from="BuddyAnimatedSprite/BuddySelectorOptionButton" to="BuddyAnimatedSprite/BuddySelectorOptionButton" method="_on_item_selected"]
