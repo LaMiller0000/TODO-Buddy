@@ -6,7 +6,7 @@ public partial class TaskListTab : Control
 	[Export] public CreateTaskPanel CreateTaskPanel;
 	[Export] public TaskDisplayList TaskDisplayList;
 
-    public override void _Ready()
+	public override void _Ready()
 	{
 		CreateTaskPanel.ClosePanel();
 	}
@@ -14,17 +14,17 @@ public partial class TaskListTab : Control
 	{
 		TaskDisplayList.SortOptions filterOptions = (TaskDisplayList.SortOptions)index;
 
-        TaskDisplayList.SortOption = filterOptions;
+		TaskDisplayList.SortOption = filterOptions;
 
-        TaskDisplayList.Refresh();
+		TaskDisplayList.Refresh();
 	}
 	public void OnShowCompletedTasks_Toggled(bool value)
 	{
-        TaskDisplayList.ShowCompletedTasks = value;
+		TaskDisplayList.ShowCompletedTasks = value;
 		TaskDisplayList.Refresh();
-    }
+	}
 
-    public void OnCreateButtonPressed()
+	public void OnCreateButtonPressed()
 	{
 		// pull up for creating new tasks
 		CreateTaskPanel.OpenPanel();

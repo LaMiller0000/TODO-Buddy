@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c1mfai0ulc3bw"]
 
 [ext_resource type="Texture2D" uid="uid://b5ad2slxdx877" path="res://assets/sprites/BLUE_HERO/BlueKnightHero/117914a7-114d-4528-8185-4333c34600a0.png" id="1_fvxg7"]
+[ext_resource type="Script" uid="uid://dj375k5qcpk0l" path="res://Interactions.cs" id="1_ktxgf"]
 [ext_resource type="Texture2D" uid="uid://cw83tlffx2xdl" path="res://assets/sprites/BLUE_HERO/BlueHero/cb881a79-9ee3-4d02-8da7-81a71a6b413e.png" id="1_op65t"]
 [ext_resource type="Script" uid="uid://cyjs8gsj5ns2v" path="res://buddy_animated_sprite.gd" id="2_36el2"]
 [ext_resource type="Script" uid="uid://cxjitb72aybk4" path="res://buddy_selector_option_button.gd" id="2_qdqqn"]
@@ -302,13 +303,16 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Control" type="Control" unique_id=2070054951]
+[node name="Control" type="Control" unique_id=2070054951 node_paths=PackedStringArray("buddy_selector_option_button", "buddy_animated_sprite")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ktxgf")
+buddy_selector_option_button = NodePath("BuddyAnimatedSprite/BuddySelectorOptionButton")
+buddy_animated_sprite = NodePath("BuddyAnimatedSprite")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1919040359]
 custom_minimum_size = Vector2(1080, 1920)

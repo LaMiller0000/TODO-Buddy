@@ -3,7 +3,7 @@ using Godot;
 
 namespace TODOBuddy;
 
-public class BuddyClass
+public partial class BuddyClass : Node
 {
 	
 	private int id;

@@ -1,7 +1,5 @@
 extends AnimatedSprite2D
 
-@onready var _buddy = $AnimatedSprite2D;
-
 enum buddySkinOpts{
 	defaultDead,
 	defaultIdle,
@@ -31,15 +29,15 @@ func _process(delta: float) -> void:
 	pass
 	
 #changes animation
-func _change_animation(newAnimation: String) -> void:
+func _change_animation(newAnimation: int) -> void:
 	
 	match newAnimation:
-		0: _buddy.play("defaultDead");
-		1: _buddy.play("defaultIdle");
-		2: _buddy.play("defaultSleep");
-		3: _buddy.play("defaultDead");
-		4: _buddy.play("defaultIdle");
-		5: _buddy.play("defaultSleep");
+		0: self.play("defaultDead");
+		1: self.play("defaultIdle");
+		2: self.play("defaultSleep");
+		3: self.play("defaultDead");
+		4: self.play("defaultIdle");
+		5: self.play("defaultSleep");
 		_: print(newAnimation) #default
 	
 	print(newAnimation);
@@ -48,11 +46,11 @@ func _change_animation(newAnimation: String) -> void:
 #changes sprite set
 func _change_sprite_set(newSprite: int) -> void:
 	match newSprite:
-		0: _buddy.play();
-		1: _buddy.play();
-		2: _buddy.play();
-		3: _buddy.play();
-		4: _buddy.play();
+		0: self.play();
+		1: self.play();
+		2: self.play();
+		3: self.play();
+		4: self.play();
 		_: print(newSprite) #default
 		
 	print(newSprite);

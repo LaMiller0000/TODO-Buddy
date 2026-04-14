@@ -17,3 +17,7 @@ func _on_item_selected(index: int) -> void: #ER, On Item Selected in Drop Down
 		4: print(index) #red demon
 		_: print(index) #default
 	pass
+	
+func printWord(word: String) -> void:
+	print(word);
+	pass
