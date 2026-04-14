@@ -1,9 +1,12 @@
 using System;
 using Godot;
 
-public BuddyPageInteractions : public BuddyClass, OptionButton, AnimatedSprite2D {
-	static var BuddySkin: string;
-	static var BuddySelected: string;
+namespace TODOBuddy;
+
+public class BuddyPageInteractions : BuddyClass
+{
+	static string BuddySkin;
+	static string BuddySelected;
 	
 	BuddyPageInteractions(){ //Constructor
 		BuddySkin = AnimatedSprite2D._on_item_selected();
@@ -16,10 +19,12 @@ public BuddyPageInteractions : public BuddyClass, OptionButton, AnimatedSprite2D
 		return BuddySelected;
 	}
 	
-	string setBuddySkin(){
-		return BuddySkin;
+	string setBuddySkin(SelectedSkin: String){
+		BuddySkin = SelectedSkin;
+		return SelectedSkin;
 	}
-	string setBuddySelected(){
-		return BuddySelected;
+	string setBuddySelected(Selected: String){
+		BuddySelected = Selected;
+		return Selected;
 	}	
 }
