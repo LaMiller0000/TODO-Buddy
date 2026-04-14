@@ -18,7 +18,13 @@ public partial class TaskListTab : Control
 
         TaskDisplayList.Refresh();
 	}
-	public void OnCreateButtonPressed()
+	public void OnShowCompletedTasks_Toggled(bool value)
+	{
+        TaskDisplayList.ShowCompletedTasks = value;
+		TaskDisplayList.Refresh();
+    }
+
+    public void OnCreateButtonPressed()
 	{
 		// pull up for creating new tasks
 		CreateTaskPanel.OpenPanel();

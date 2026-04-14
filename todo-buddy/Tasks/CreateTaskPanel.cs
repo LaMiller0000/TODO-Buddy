@@ -32,6 +32,7 @@ public partial class CreateTaskPanel : Control
 
     [Export] public Button CancelButton;
 	[Export] public Button SaveButton;
+	[Export] public Button DeleteButton;
 
 	[ExportGroup("Snap Points")]
 	// ***** Snap points ***** //
@@ -45,6 +46,8 @@ public partial class CreateTaskPanel : Control
 
 
 	public event Action PannelClosed;
+
+	private Task _editingTask = null;
 
 	// true when the user is swiping the panel up or down
 	private bool _isResizing = false;
@@ -70,6 +73,25 @@ public partial class CreateTaskPanel : Control
 	{
 		this.Visible = true;
 		SetPanelPosition(HalfOpenPanelSizeRatio);
+	}
+	
+	public void OpenPanelEdit(Task task)
+	{
+		_editingTask = task;
+
+		OpenPanel();
+
+		DeleteButton.Visible = true;
+
+		NameInput.Text = task.Name;
+		DescriptionInput.Text = task.Description;
+		Start_DayInput.Value = task.CreationDate.Day;
+		Start_MonthInput.Value = task.CreationDate.Month;
+		Start_YearInput.Value = task.CreationDate.Year;
+		Due_YearInput.Value = (int)task.DueDate?.Year;
+		Due_MonthInput.Value = (int)task.DueDate?.Month;
+		Due_DayInput.Value = (int)task.DueDate?.Day;
+		ProgressInput.Select((int)task.Progress);
 	}
 	
 	public void SetPanelPosition(float newSize_ratio)
@@ -143,6 +165,11 @@ public partial class CreateTaskPanel : Control
 
         CancelButton.Pressed += CancelButton_Pressed;
 		SaveButton.Pressed += SaveButton_Pressed;
+		DeleteButton.Pressed += DeleteButton_Pressed;
+		
+		ProgressInput.AddItem("Todo",       (int)TaskProgress.Todo);
+		ProgressInput.AddItem("In Progress", (int)TaskProgress.InProgress);
+		ProgressInput.AddItem("Done",        (int)TaskProgress.Done);
 	}
 
 	private void CancelButton_Pressed()
@@ -150,7 +177,31 @@ public partial class CreateTaskPanel : Control
 		ResetValues();
     }
 
-	private void ResetValues()
+	private void DeleteButton_Pressed()
+	{
+		if (_editingTask == null) return;
+
+		MainScene.Instance.Project.Tasks.Remove(_editingTask);
+		MainScene.Instance.Project.TaskListUpdated.Invoke();
+
+		ResetValues();
+	}
+
+	// Updates the day ranges based on what the month is 
+	private void OnDue_MonthInput_Changed(float value)
+	{
+		Due_DayInput.MaxValue = TaskHelper.GetDaysInMonth((byte)Due_MonthInput.Value);
+		GD.Print($"OnDue_MonthInput_Changed({value})");
+    }
+    private void OnStart_MonthInput_Changed(float value)
+    {
+        Start_DayInput.MaxValue = TaskHelper.GetDaysInMonth((byte)Start_MonthInput.Value);
+        GD.Print($"OnStart_MonthInput_Changed({value})");
+
+    }
+
+
+    private void ResetValues()
 	{
         ClosePanel();
         NameInput.Clear();
@@ -167,27 +218,38 @@ public partial class CreateTaskPanel : Control
         Due_YearInput.Value = (due.Year);
         Due_MonthInput.Value = (due.Month);
         Due_DayInput.Value = (due.Day);
+        
+        DeleteButton.Visible = false;
+        _editingTask = null;
     }
 
 	private void SaveButton_Pressed()
 	{
-		GD.Print($"Adding task: {NameInput.Text}");
-
-		var task = new Task
+		if (_editingTask != null)
 		{
-			Name = NameInput.Text,
-			Description = DescriptionInput.Text,
-			DueDate = new DateTime((int)Due_YearInput.Value, (int)Due_MonthInput.Value, (int)Due_DayInput.Value),
-            CreationDate = new DateTime((int)Start_YearInput.Value, (int)Start_MonthInput.Value, (int)Start_DayInput.Value),
-			Progress = TaskProgress.Todo,
-		};
+			_editingTask.Name = NameInput.Text;
+			_editingTask.Description = DescriptionInput.Text;
+			_editingTask.CreationDate = new DateTime((int)Start_YearInput.Value, (int)Start_MonthInput.Value, (int)Start_DayInput.Value);
+			_editingTask.DueDate = new DateTime((int)Due_YearInput.Value, (int)Due_MonthInput.Value, (int)Due_DayInput.Value);
+			_editingTask.Progress = (TaskProgress)ProgressInput.GetSelectedId();
+		}
+		else
+		{
+			var task = new Task
+			{
+				Name = NameInput.Text,
+				Description = DescriptionInput.Text,
+				DueDate = new DateTime((int)Due_YearInput.Value, (int)Due_MonthInput.Value, (int)Due_DayInput.Value),
+				CreationDate = new DateTime((int)Start_YearInput.Value, (int)Start_MonthInput.Value, (int)Start_DayInput.Value),
+				Progress = (TaskProgress)ProgressInput.GetSelectedId(),
+			};
 
-		// Adds the task to the list of tasks and updates everything subscribed 
-		MainScene.Instance.Project.Tasks.Add(task);
+			MainScene.Instance.Project.Tasks.Add(task);
+		}
+
 		MainScene.Instance.Project.TaskListUpdated.Invoke();
-
-        ResetValues();
-    }
+		ResetValues();
+	}
 
 	public override void _Process(double delta) // runs every tick, its the main loop for general every frame processes
 	{

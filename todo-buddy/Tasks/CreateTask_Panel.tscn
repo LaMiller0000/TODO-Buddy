@@ -33,7 +33,7 @@ corner_detail = 5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jb4bi"]
 
-[node name="CreateTask_Panel" type="Control" unique_id=1793479152 node_paths=PackedStringArray("NameInput", "DescriptionInput", "Due_MonthInput", "Due_DayInput", "Due_YearInput", "Start_MonthInput", "Start_DayInput", "Start_YearInput", "ProgressInput", "CancelButton", "SaveButton")]
+[node name="CreateTask_Panel" type="Control" unique_id=1793479152 node_paths=PackedStringArray("NameInput", "DescriptionInput", "Due_MonthInput", "Due_DayInput", "Due_YearInput", "Start_MonthInput", "Start_DayInput", "Start_YearInput", "ProgressInput", "CancelButton", "SaveButton", "DeleteButton")]
 layout_mode = 3
 anchor_top = 0.008
 anchor_right = 1.0
@@ -55,6 +55,8 @@ Start_YearInput = NodePath("Panel/VBoxContainer/ScrollContainer/VBoxContainer/St
 ProgressInput = NodePath("Panel/VBoxContainer/ScrollContainer/VBoxContainer/ProgressInput/ProgressInput")
 CancelButton = NodePath("Panel/VBoxContainer/PanelGrabberButton/CancelButton")
 SaveButton = NodePath("Panel/VBoxContainer/PanelGrabberButton/SaveButton")
+DeleteButton = NodePath("Panel/VBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/DeleteButton")
+HalfOpenPanelSizeRatio = 0.46
 
 [node name="Panel" type="Panel" parent="." unique_id=665995524]
 layout_mode = 1
@@ -120,12 +122,14 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_tl3lw")
 placeholder_text = "Add title"
 
 [node name="DescriptionInput" type="TextEdit" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=2097104284]
-custom_minimum_size = Vector2(2.47, 300)
+custom_minimum_size = Vector2(2.47, 150)
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("3_tl3lw")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jb4bi")
 placeholder_text = "Description"
+wrap_mode = 1
+scroll_fit_content_height = true
 
 [node name="Start_DateInput" type="HBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=102482409]
 layout_mode = 2
@@ -189,11 +193,17 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(75, 50)
 layout_mode = 2
 theme = ExtResource("4_jb4bi")
+min_value = 1.0
+max_value = 12.0
+value = 1.0
+rounded = true
 
 [node name="Due_DayInput" type="SpinBox" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/Due_DateInput" unique_id=839752354]
 custom_minimum_size = Vector2(75, 50)
 layout_mode = 2
 theme = ExtResource("4_jb4bi")
+max_value = 31.0
+rounded = true
 
 [node name="Due_YearInput" type="SpinBox" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/Due_DateInput" unique_id=908926149]
 custom_minimum_size = Vector2(100, 50)
@@ -201,6 +211,7 @@ layout_mode = 2
 theme = ExtResource("4_jb4bi")
 min_value = 2000.0
 max_value = 3000.0
+value = 2000.0
 allow_greater = true
 allow_lesser = true
 custom_arrow_step = 1.0
@@ -223,6 +234,20 @@ custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=719188367]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="DeleteButton" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer/MarginContainer" unique_id=1997098578]
+custom_minimum_size = Vector2(136, 59.7)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 32
+text = "Delete"
+
 [node name="Panel_ScrollContainer#VBoxContainer" type="VBoxContainer" parent="." unique_id=427180207]
 layout_mode = 0
 size_flags_horizontal = 3
@@ -234,3 +259,5 @@ layout_mode = 0
 
 [connection signal="button_down" from="Panel/VBoxContainer/PanelGrabberButton" to="." method="OnSlideResize_start"]
 [connection signal="button_up" from="Panel/VBoxContainer/PanelGrabberButton" to="." method="OnSlideResize_stop"]
+[connection signal="value_changed" from="Panel/VBoxContainer/ScrollContainer/VBoxContainer/Start_DateInput/Start_MonthInput" to="." method="OnStart_MonthInput_Changed"]
+[connection signal="value_changed" from="Panel/VBoxContainer/ScrollContainer/VBoxContainer/Due_DateInput/Due_MonthInput" to="." method="OnDue_MonthInput_Changed"]

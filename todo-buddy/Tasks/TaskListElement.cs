@@ -22,6 +22,12 @@ public partial class TaskListElement : Panel
     [Export] public VBoxContainer VBox_DateStatus;
     [Export] public TaskStatusElement Status_Element;
 
+    [Export] public StyleBox Late_Stylebox;
+    [Export] public StyleBox Completed_Stylebox;
+    
+    public CreateTaskPanel CreateTaskPanel;
+
+
     // flag to hold if the element is expanded or not
     private bool _expanded = false;
     
@@ -31,6 +37,8 @@ public partial class TaskListElement : Panel
     public override void _Ready()
     {
         if (Task == null) Task = TaskHelper.DebugTask_1;
+        TaskName_Label.LabelSettings = (LabelSettings)TaskName_Label.LabelSettings.Duplicate();
+
         Refresh();
     }
 
@@ -42,7 +50,29 @@ public partial class TaskListElement : Panel
         Status_Element.Task = Task;
         Status_Element.UpdateStatus();
 
-        TaskName_Label.LabelSettings = (LabelSettings)TaskName_Label.LabelSettings.Duplicate();
+
+        //this.AddThemeStyleboxOverride("panel", Late_Stylebox);
+        if (Task.DueDate.Value < DateTime.Now &&
+            Task.Progress != TaskProgress.Completed)
+        {
+            if (!this.HasThemeStyleboxOverride("panel"))
+            {
+                this.AddThemeStyleboxOverride("panel", Late_Stylebox);
+                GD.Print("-----------------------Add Theme Stylebox Override");
+            }
+        }
+        else if (this.HasThemeStyleboxOverride("panel"))
+        {
+            GD.Print("Remove Theme Stylebox Override");
+            this.RemoveThemeStyleboxOverride("panel");
+        }
+
+        if (Task.Progress == TaskProgress.Completed)
+        {
+            this.AddThemeStyleboxOverride("panel", Completed_Stylebox);
+        }
+
+
 
         OnResize();
     }
@@ -107,6 +137,6 @@ public partial class TaskListElement : Panel
     /// </summary>
     public void LongPress()
     {
-        throw new NotImplementedException("long press on task, edit menu not implemented yet");
+        CreateTaskPanel.OpenPanelEdit(Task);
     }
 }
