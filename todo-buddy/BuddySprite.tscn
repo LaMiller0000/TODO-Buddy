@@ -315,7 +315,7 @@ custom_minimum_size = Vector2(1080, 1920)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-color = Color(0.3808, 0.4655733, 0.68, 1)
+color = Color(0.3, 0.3, 0.3, 1)
 
 [node name="ColorRect" type="ColorRect" parent="ColorRect" unique_id=205405401]
 layout_mode = 0
@@ -323,14 +323,14 @@ offset_left = 90.0
 offset_top = 62.0
 offset_right = 986.0
 offset_bottom = 656.0
-color = Color(0.0282, 0.31537005, 0.47, 1)
+color = Color(0.21, 0.21, 0.21, 1)
 
 [node name="BuddyAnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=1594670097]
-position = Vector2(533.00006, 459.00003)
-scale = Vector2(11.4375, 10.875)
+position = Vector2(533.00006, 459)
+scale = Vector2(11.437499, 10.875)
 sprite_frames = SubResource("SpriteFrames_qdqqn")
-animation = &"defaultDead"
-frame_progress = 0.79102427
+animation = &"defaultIdle"
+frame_progress = 0.35717037
 script = ExtResource("2_36el2")
 
 [node name="BuddySelectorOptionButton" type="OptionButton" parent="BuddyAnimatedSprite" unique_id=553462112]
