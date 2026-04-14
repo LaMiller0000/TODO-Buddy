@@ -21,6 +21,5 @@ public BuddyPageInteractions : public BuddyClass, OptionButton, AnimatedSprite2D
 	}
 	string setBuddySelected(){
 		return BuddySelected;
-	}
-	
+	}	
 }
