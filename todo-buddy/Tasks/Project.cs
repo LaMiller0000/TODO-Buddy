@@ -16,6 +16,8 @@ namespace TODOBuddy.Tasks;
 /// </summary>
 public class Project
 {
+    // This is so the json files have a version number
+    public string SaveVersion = "0.1";
     public string Name { get; set; }
     public string Description { get; set; }
     public List<Task> Tasks { get; set; } = new List<Task>();
