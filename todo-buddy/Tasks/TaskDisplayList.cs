@@ -29,10 +29,9 @@ public partial class TaskDisplayList : ScrollContainer
 
     public override void _Ready()
     {
+        if (!Engine.IsEditorHint()) MainScene.Instance.Project.TaskListUpdated += Refresh;
         
         Refresh();
-
-        if (!Engine.IsEditorHint()) MainScene.Instance.Project.TaskListUpdated += Refresh;
     }
     public void Refresh()
     {
@@ -76,7 +75,8 @@ public partial class TaskDisplayList : ScrollContainer
                 break;
             case SortOptions.Priority:
                 sortedTasks = tasks
-                    .OrderBy(x => x.Progress)
+                    .OrderBy(x => !x.IsLate())
+                    .ThenBy(x => x.Progress)
                     .ThenBy(x => x.DueDate)
                     .ThenBy(x => x.Name)
                     .ToList();

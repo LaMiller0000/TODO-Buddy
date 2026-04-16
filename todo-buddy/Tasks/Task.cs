@@ -22,6 +22,10 @@ public class Task
     /// <summary>Holds if the Task is compleated</summary>
     public TaskProgress Progress { get; set; } = TaskProgress.Todo;
 
+    /// <summary>Checks if late.</summary>
+    /// <returns><seealso cref="true"/> if late</returns>
+    public bool IsLate() => DueDate.Value < DateTime.Now && Progress != TaskProgress.Completed;
+
     /// <summary>Gets an immutable list of tasks this task depends on. null if no dependancys. Inverse of <seealso cref="Subtasks"/>.</summary>
     /// <remarks>Use <seealso cref="AddDependancy(Task)"/> and <see cref="RemoveDependancy(Task)"/> to edit list. </remarks>
     [JsonIgnore]
