@@ -19,6 +19,14 @@ public partial class MainScene : Control
         Project = Project.LoadFromFile();
     }
 
+    public override void _Ready()
+    {
+        Project.TaskListUpdated += () => 
+        { 
+            Project.SaveToFile(); 
+        };
+    }
+
     public override void _ExitTree()
     {
         Project.SaveToFile();
