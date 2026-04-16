@@ -137,6 +137,6 @@ public partial class TaskListElement : Panel
     /// </summary>
     public void LongPress()
     {
-        CreateTaskPanel.OpenPanelEdit(Task);
+        if (!Engine.IsEditorHint()) CreateTaskPanel.OpenPanelEdit(Task);
     }
 }

@@ -56,7 +56,7 @@ public partial class TaskDisplayList : ScrollContainer
             GD.Print($"Adding task: {task.Name}");
             TaskListElement taskListElement = _TaskDisplay.Instantiate<TaskListElement>();
             taskListElement.Task = task;
-            taskListElement.CreateTaskPanel = (CreateTaskPanel)CreateTaskPanel;
+            if (!Engine.IsEditorHint()) taskListElement.CreateTaskPanel = (CreateTaskPanel)CreateTaskPanel;
             taskListElement.Refresh();
             TaskListContainer.AddChild(taskListElement);
         }
