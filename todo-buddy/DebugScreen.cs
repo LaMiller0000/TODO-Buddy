@@ -1,6 +1,8 @@
 using Godot;
 using System;
+using System.Linq;
 using TODOBuddy.Tasks;
+using Newtonsoft.Json;
 
 public partial class DebugScreen : ColorRect
 {
@@ -8,10 +10,16 @@ public partial class DebugScreen : ColorRect
     public override void _Ready()
 	{
 	}
-
-	public void OnResetButtonPressed()
+    public static T DeepClone<T>(T obj)
+    {
+        // Serializes to JSON string, then deserializes to a brand new object instance
+        string json = JsonConvert.SerializeObject(obj);
+        return JsonConvert.DeserializeObject<T>(json);
+    }
+    public void OnResetButtonPressed()
 	{
-        MainScene.Instance.Project.Tasks = TaskHelper.DebugTasks;
+        MainScene.Instance.Project.Tasks = TaskHelper.DebugTasks.Select(item => DeepClone<Task>(item)).ToList(); // TaskHelper.DebugTasks.ToList();
+
         MainScene.Instance.Project.TaskListUpdated.Invoke();
     }
 	public void OnClearButtonPressed()
