@@ -32,17 +32,32 @@ public partial class DebugScreen : ColorRect
 	{
         MainScene.Instance.Project.Tasks = TaskHelper.DebugTasks.Select(item => DeepClone<Task>(item)).ToList(); // TaskHelper.DebugTasks.ToList();
 
-        // this refreshes the list with out saving the changes to file
-        _taskDisplayList.Refresh();
+        try
+        {
+            // this refreshes the list with out saving the changes to file
+            _taskDisplayList.Refresh();
+        }
+        catch ( Exception ex )
+        {
+            // this saves changes to file
+            MainScene.Instance.Project.TaskListUpdated.Invoke(); 
+        }
 
-        // this saves changes to file
-        //MainScene.Instance.Project.TaskListUpdated.Invoke(); 
     }
     public void OnClearButtonPressed()
 	{
         MainScene.Instance.Project.Tasks = new();
-        // this refreshes the list with out saving the changes to file
-        _taskDisplayList.Refresh();
+
+        try
+        {
+            // this refreshes the list with out saving the changes to file
+            _taskDisplayList.Refresh();
+        }
+        catch (Exception ex)
+        {
+            // this saves changes to file
+            MainScene.Instance.Project.TaskListUpdated.Invoke();
+        }
 
     }
     public void OnLoadButtonPressed()
