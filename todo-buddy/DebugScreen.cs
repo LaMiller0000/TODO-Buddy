@@ -6,10 +6,22 @@ using Newtonsoft.Json;
 
 public partial class DebugScreen : ColorRect
 {
+    // this is used to refresh the list with out using Project.TaskListUpdated.Invoke() because that
+    // automatically saves changes, this is good for normal use but not when debugging
+    public TaskDisplayList _taskDisplayList;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
-	}
+        try
+        {
+            _taskDisplayList = MainScene.Instance.GetNode($"Container/TaskList_Tab/VBoxContainer/TaskDisplayList") as TaskDisplayList;
+        }
+        catch ( Exception ex )
+        {
+            GD.PrintErr($"DebugScreen Error: cannot find _taskDisplayList, (error msg: {ex})");
+        }
+    }
     public static T DeepClone<T>(T obj)
     {
         // Serializes to JSON string, then deserializes to a brand new object instance
@@ -20,17 +32,21 @@ public partial class DebugScreen : ColorRect
 	{
         MainScene.Instance.Project.Tasks = TaskHelper.DebugTasks.Select(item => DeepClone<Task>(item)).ToList(); // TaskHelper.DebugTasks.ToList();
 
-        MainScene.Instance.Project.TaskListUpdated.Invoke();
+        // this refreshes the list with out saving the changes to file
+        _taskDisplayList.Refresh();
+
+        // this saves changes to file
+        //MainScene.Instance.Project.TaskListUpdated.Invoke(); 
     }
-	public void OnClearButtonPressed()
+    public void OnClearButtonPressed()
 	{
         MainScene.Instance.Project.Tasks = new();
-        MainScene.Instance.Project.TaskListUpdated.Invoke();
+        // this refreshes the list with out saving the changes to file
+        _taskDisplayList.Refresh();
 
     }
     public void OnLoadButtonPressed()
 	{
-        //MainScene.Instance.Project = Project.LoadFromFile();
         MainScene.Instance.Project.LoadTasksFromFile();
     }
     public void OnSaveButtonPressed()
