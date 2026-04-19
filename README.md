@@ -15,7 +15,9 @@
             - Task Web
         - Buddy
             - Customizable friend
-            - Health
+                - Health based off of your productivity and time management skills
+                - Experience based off of task completions streaks
+            - Unique Sprites that you will love!
 
 ## Setup & Technology
     IDE: ANDROID STUDIO, VSCODE, GODOT, JETBRAINS RYDER
