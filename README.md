@@ -1,4 +1,6 @@
-# Syntax Buddy
+# TODO: Buddy
+    A todolist, that is more than a todolist!
+    
     A todo app made to motivate students with your studies!
 
     Our app brings you:
