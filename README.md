@@ -77,6 +77,12 @@ Final Technical Report | 04.25.26 | Objective: As a group, finalize your 15 page
             swipe interactable in certain areas
         Organized the project, and project folders in related areas.
         Added funtions to set sixe dictation, speed and font size for dialog
+    Report 4:
+        Finished the UI of the Task View Screen, Task Creation Tab, and most of the Buddy Screen
+        Developed Buddy Interaction Class
+            Connected Scripts for future buddy interactions and development
+        Finished Presentation for the CETA Showcase
+        Finished Paper for the CETA Showcase
 
 ## Individual Contributions
 ### Penny - Developer
@@ -85,6 +91,13 @@ Final Technical Report | 04.25.26 | Objective: As a group, finalize your 15 page
         - Pulled project and got it working locally
     Report 2:
         - Individual learning on basics of Godot
+    Report 4:
+        - Created Task Creation Tab
+        - Added the ability to input task values
+        - Added user task modification
+            - Save
+            - Delete
+            - Cancel
 
 ### Lucius - Developer
     Report 1:
@@ -145,6 +158,11 @@ Final Technical Report | 04.25.26 | Objective: As a group, finalize your 15 page
                 - add button
                 - text boxes
         - moved task related file into the task folder instead of just in the project root directory
+    Report 4:
+        - Improved due and start date selectors and added short/long press detection to task element
+        - Created structure for task list system
+        - Fixed issues with the Display list editor
+        - Added JSON file saving system
 
 ### Emma - Developer, Documentation Lead
     Report 1:
@@ -175,3 +193,9 @@ Final Technical Report | 04.25.26 | Objective: As a group, finalize your 15 page
         - Re animated the sprites from the previous list, with extended animations such as:
             - default and evolved
             - idle, sleep and dead for both default and evolved versions
+    Report 4:
+        - Continued to develop documentation and weekly report
+        - Wrote final technical report
+        - Build Buddy Interactions Class
+        - Built foundational scripts for Buddy Interactions Class
+        - Added Drop down menu with buddy options to the UI of the Buddy Screen
